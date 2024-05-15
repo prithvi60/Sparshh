@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import ProductReels from "@/components/ProductReels";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <main >
       <Hero/>
       <ProductReels/>
+      <Footer/>
     </main>
   );
 }

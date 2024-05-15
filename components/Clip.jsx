@@ -8,20 +8,19 @@ export const Clip = ({videoSrc}) => {
 
   const handleMouseOver = () => {
     videoRef.current.play(undefined);
-    setPlay("true");
+    // setPlay("true");
   };
   const handleMouseOut = () => {
     videoRef.current.pause();
-    setPlay("false");
+    // setPlay("false");
   };
   
   return (
     <div className="relative shadow-md shadow-text-50">
       <video
-        muted
         loop
         preload="auto"
-        className={`w-full aspect-clip object-cover object-top`}
+        className={`w-full h-full aspect-clip object-contain`}
         ref={videoRef}
       >
         <source src={videoSrc} type="video/mp4" />
