@@ -13,7 +13,7 @@ const Footer = () => {
           color="secondary"
           className="w-full px-5 mx-auto text-base capitalize md:w-max md:text-start md:px-10 text-default md:text-lg md:mx-0"
         >
-          Contact Us
+          <Link href={"/contact"}>Contact Us</Link>
         </Button>
       </div>
       <div className="w-full space-y-5 md:px-20">
@@ -22,16 +22,16 @@ const Footer = () => {
         </h4>
         <ul className="space-y-2 text-base font-normal capitalize font-lato text-info">
           <li>
-            <Link href={"#"}>Home</Link>
+            <Link href={"/"}>Home</Link>
           </li>
           <li>
-            <Link href={"#"}>Contact</Link>
+            <Link href={"/contact"}>Contact</Link>
           </li>
           <li>
-            <Link href={"#"}>privacy policy</Link>
+            <Link href={"/privacyPolicy"}>privacy policy</Link>
           </li>
           <li>
-            <Link href={"#"}>terms & condition</Link>
+            <Link href={"terms&Condition"}>terms & condition</Link>
           </li>
         </ul>
       </div>

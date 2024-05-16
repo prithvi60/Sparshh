@@ -1,7 +1,7 @@
 import { Goblin_One, Lato, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import NavbarPage from "@/components/Navbar";
+import DefaultNavbvar from "@/components/DefaultNavbvar";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -33,7 +33,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${montserrat.variable} ${lato.variable} ${goblin.variable} bg-default`}>
       <body>
-        <NavbarPage />
+        {/* <NavbarPage /> */}
+        {/* <DefaultNavbvar/> */}
         <Providers>{children}</Providers>
       </body>
     </html>

@@ -1,13 +1,5 @@
-import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
-import ProductReels from "@/components/ProductReels";
+import Index from "@/components/Index";
 
 export default function Home() {
-  return (
-    <main >
-      <Hero/>
-      <ProductReels/>
-      <Footer/>
-    </main>
-  );
+  return <Index />;
 }

@@ -1,25 +1,33 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export const Clip = ({videoSrc}) => {
-  const [play, setPlay] = useState("false");
-  const videoRef = useRef();
+export const Clip = ({ videoSrc }) => {
+  const [mute, setMute] = useState(false);
+  const videoRef = useRef(null);
+
+  // console.log(mute);
 
   const handleMouseOver = () => {
-    videoRef.current.play(undefined);
-    // setPlay("true");
+    // videoRef.current.play(undefined);
+    setMute(true);
+    // videoRef.current.defaultMuted = true;
+    videoRef.current.muted = true;
   };
   const handleMouseOut = () => {
-    videoRef.current.pause();
-    // setPlay("false");
+    // videoRef.current.pause();
+    setMute(false);
+    // videoRef.current.defaultMuted = false;
+    videoRef.current.muted = false;
   };
-  
+
   return (
     <div className="relative shadow-md shadow-text-50">
       <video
+        muted
         loop
-        preload="auto"
+        autoPlay={!mute ? true : false}
+        // playsInline
         className={`w-full h-full aspect-clip object-contain`}
         ref={videoRef}
       >
@@ -29,8 +37,7 @@ export const Clip = ({videoSrc}) => {
         className={`absolute top-0 left-0 w-full h-full cursor-pointer !z-50`}
         onMouseEnter={handleMouseOver}
         onMouseOut={handleMouseOut}
-      >
-      </div>
+      ></div>
     </div>
   );
 };

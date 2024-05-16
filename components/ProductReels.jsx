@@ -4,19 +4,19 @@ import React from "react";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import { Chip } from "@nextui-org/chip";
 import ProductCard from "./ProductCard";
+import { get5KTo10K, getUpto5K, get10KTo15K } from "@/constants/FetchData";
 
-const reels = [
-  "/sparshh_reel.mp4",
-  "/sparshh_reel_2.mp4",
-  "/sparshh_reel.mp4",
-  "/sparshh_reel_2.mp4",
-  "/sparshh_reel.mp4",
-  "/sparshh_reel.mp4",
-  "/sparshh_reel_2.mp4",
-  "/sparshh_reel.mp4",
-]
+const ProductReels = async () => {
+  const priceRange1 = await getUpto5K();
+  const priceRange2 = await get5KTo10K();
+  const priceRange3 = await get10KTo15K();
 
-const ProductReels = () => {
+  const reels = [
+    { range: "upto 5k", data: priceRange1 },
+    { range: "5k - 10k", data: priceRange2 },
+    { range: "10k - 15k", data: priceRange3 },
+  ];
+
   return (
     <section className="h-full px-6 py-5 max-w-screen-2xl sm:px-10 md:py-8 xl:py-10">
       <div className="flex flex-col w-full">
@@ -26,53 +26,68 @@ const ProductReels = () => {
           variant="underlined"
           classNames={{
             base: "w-full h-full justify-end",
-            tabList:
-              "gap-6 w-full relative rounded-none p-0 w-max",
+            tabList: "gap-6 w-full relative rounded-none p-0 w-max",
             cursor: "w-full bg-primary",
             tab: "max-w-fit px-0 h-10",
             tabContent: "group-data-[selected=true]:text-[#06b6d4]",
           }}
         >
-           {/* bg-[#22d3ee] */}
-          <Tab
-            key="photos"
-            title={
-              <div className="flex items-center space-x-2 font-lato">
-                <span className="uppercase text-success">upto 5K</span>
-                <Chip color="primary" size="sm" variant="solid" className="text-white">
-                  9
-                </Chip>
-              </div>
-            }
-          >
-            <ProductCard reels={reels} />
-          </Tab>
-          <Tab
+          {reels.map((reel, idx) => (
+            <Tab
+              key={idx}
+              title={
+                <div className="flex items-center space-x-2 font-lato">
+                  <span className="uppercase text-success">{reel.range}</span>
+                  <Chip
+                    color="primary"
+                    size="sm"
+                    variant="solid"
+                    className="text-white"
+                  >
+                    {reel.data.length}
+                  </Chip>
+                </div>
+              }
+            >
+              <ProductCard reels={reel.data} />
+            </Tab>
+          ))}
+          {/* <Tab
             key="music"
             title={
               <div className="flex items-center space-x-2 font-lato">
                 <span className="uppercase text-success">5K - 10K</span>
-                <Chip color="primary" size="sm" variant="solid" className="text-white">
-                  4
+                <Chip
+                  color="primary"
+                  size="sm"
+                  variant="solid"
+                  className="text-white"
+                >
+                  {priceRange2.length}
                 </Chip>
               </div>
             }
           >
-            <ProductCard reels={reels} />
+            <ProductCard reels={priceRange2} />
           </Tab>
           <Tab
             key="videos"
             title={
               <div className="flex items-center space-x-2 font-lato">
                 <span className="uppercase text-success">10K - 15K</span>
-                <Chip color="primary" size="sm" variant="solid" className="text-white">
-                  5
+                <Chip
+                  color="primary"
+                  size="sm"
+                  variant="solid"
+                  className="text-white"
+                >
+                  {priceRange3.length}
                 </Chip>
               </div>
             }
           >
-            <ProductCard reels={reels} />
-          </Tab>
+            <ProductCard reels={priceRange3} />
+          </Tab> */}
         </Tabs>
       </div>
       {/* <div className="flex items-center gap-4 md:gap-8 xl:gap-12">

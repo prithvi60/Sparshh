@@ -1,11 +1,12 @@
-import Contact from "@/components/Contact";
+
 import NavbarPage from "@/components/Navbar";
+import Privacy from "@/components/Privacy";
 
 export default function Home() {
   return (
     <main>
       <NavbarPage/>
-      <Contact />
+      <Privacy/>
     </main>
   );
 }

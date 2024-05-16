@@ -19,10 +19,15 @@
     "@nextui-org/system": "^2.1.2",
     "@nextui-org/tabs": "^2.0.29",
     "@nextui-org/theme": "^2.2.3",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.42.1",
     "framer-motion": "^11.1.9",
     "next": "14.2.3",
+    "next-sanity": "^7.1.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sanity": "^3.42.1",
+    "styled-components": "^6.1.11"
   },
   "devDependencies": {
     "eslint": "^8",
