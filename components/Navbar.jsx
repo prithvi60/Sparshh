@@ -12,18 +12,10 @@ import {
 } from "@nextui-org/navbar";
 import { Link } from "@nextui-org/link";
 import Image from "next/image";
-import { motion, useScroll, useSpring } from "framer-motion";
 
 function NavbarPage() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [menuBar, setMenuBar] = React.useState("home");
-
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
 
   const menuItems = [
     { ref: "/", menuTitle: "home" },
@@ -31,16 +23,12 @@ function NavbarPage() {
   ];
 
   return (
-    <>
-      <motion.div
-        className="fixed bottom-0 left-0 right-0 h-[10px] !z-[100] origin-left bg-success"
-        style={{ scaleX }}
-      />
+    <div className="w-full h-auto bg-info">
       <Navbar
         onMenuOpenChange={setIsMenuOpen}
-        maxWidth="2xl"
-        className="bg-info border-b-2 border-info !px-0"
+        className="bg-info border-b-2 border-info w-full"
         classNames={{
+          wrapper: "!max-w-screen-2xl mx-auto px-[1.5rem] md:px-[2rem]",
           item: [
             "flex",
             "relative",
@@ -74,7 +62,6 @@ function NavbarPage() {
       >
         <NavbarContent>
           <NavbarBrand className="">
-            {/* <AcmeLogo /> */}
             {/* <p className="text-lg font-bold capitalize text-default font-montserrat md:text-xl">
             sparshh
           </p> */}
@@ -111,9 +98,35 @@ function NavbarPage() {
             </NavbarItem>
           ))}
         </NavbarContent>
-        <NavbarMenu className="!bg-primary !bg-opacity-60 items-center">
+        <NavbarMenu
+          className="!bg-primary !bg-opacity-60 items-center !z-[1000]"
+          motionProps={{
+            variants: {
+              enter: {
+                x: 0,
+                // opacity: 1,
+                transition: {
+                  duration: 0.3,
+                  ease: "easeOut",
+                },
+              },
+              exit: {
+                x: -400,
+                // opacity: 0,
+                transition: {
+                  duration: 0.5,
+                  ease: "easeIn",
+                },
+              },
+            },
+          }}
+        >
           {menuItems.map((item, index) => (
-            <NavbarMenuItem key={index} isActive={item.menuTitle === menuBar}>
+            <NavbarMenuItem
+              key={index}
+              isActive={item.menuTitle === menuBar}
+              onChange={() => setIsMenuOpen(false)}
+            >
               <Link
                 className="w-full !h-auto pt-5 font-medium capitalize font-lato text-default"
                 href={item.ref}
@@ -125,7 +138,7 @@ function NavbarPage() {
           ))}
         </NavbarMenu>
       </Navbar>
-    </>
+    </div>
   );
 }
 

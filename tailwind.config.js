@@ -11,7 +11,7 @@ module.exports = {
     fontFamily: {
       montserrat: ["var(--font-montserrat)"],
       lato: ["var(--font-lato)"],
-      goblin: ["var(--font-goblin)"],
+      protest: ["var(--font-protest)"],
     },
     screens: {
       sm: "640px",

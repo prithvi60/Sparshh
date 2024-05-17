@@ -1,4 +1,4 @@
-import { Goblin_One, Lato, Montserrat } from "next/font/google";
+import { Lato, Montserrat,Protest_Revolution } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import DefaultNavbvar from "@/components/DefaultNavbvar";
@@ -16,11 +16,11 @@ const lato = Lato({
   variable: "--font-lato",
 });
 
-const goblin = Goblin_One({
+const protest = Protest_Revolution({
   subsets: ["latin"],
   weight: "400",
   display: "swap",
-  variable: "--font-goblin",
+  variable: "--font-protest",
 })
 
 export const metadata = {
@@ -31,7 +31,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${lato.variable} ${goblin.variable} bg-default`}>
+    <html lang="en" className={`${montserrat.variable} ${lato.variable} ${protest.variable} bg-default`}>
       <body>
         {/* <NavbarPage /> */}
         {/* <DefaultNavbvar/> */}

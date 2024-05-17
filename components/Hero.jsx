@@ -7,14 +7,14 @@ const Hero = () => {
     <section className="w-full h-[25vh] md:h-[35vh] xl:h-[55vh] bg-black flex justify-center items-center shadow-md">
       {/* {letters.map((letter, idx) => (
         <h1
-          className="font-goblin text-xl md:text-4xl lg:text-8xl xl:text-[150px] px-3 font-extrabold text-default text-outline hover:animate-ping cursor-progress tracking-widest shadow-sm"
+          className="font-protest text-xl md:text-4xl lg:text-8xl xl:text-[150px] px-3 font-extrabold text-default text-outline hover:animate-ping cursor-progress tracking-widest shadow-sm"
           key={idx}
         >
           {letter}
         </h1>
       ))} */}
       <div className="block space-y-4 md:space-y-8 xl:space-y-12">
-        <h1 className="font-goblin text-[2.25rem] md:text-7xl lg:text-8xl xl:text-[120px] px-3 font-extrabold text-default text-outline tracking-widest shadow-sm uppercase">
+        <h1 className="font-protest text-[2.25rem] md:text-7xl lg:text-8xl xl:text-[180px] px-3 font-extrabold text-default text-outline tracking-widest shadow-sm uppercase">
           sparshh
         </h1>
         <div className="space-y-4 xl:space-y-10">
