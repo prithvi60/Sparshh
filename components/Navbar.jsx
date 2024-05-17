@@ -104,15 +104,13 @@ function NavbarPage() {
             variants: {
               enter: {
                 x: 0,
-                // opacity: 1,
                 transition: {
                   duration: 0.3,
                   ease: "easeOut",
                 },
               },
               exit: {
-                x: -400,
-                // opacity: 0,
+                x: 500,
                 transition: {
                   duration: 0.5,
                   ease: "easeIn",

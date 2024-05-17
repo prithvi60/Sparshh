@@ -7,28 +7,31 @@ export async function getUpto5K() {
           "thumbnail_image" : thumbnail_image.asset->url,
          "videoSrc" : video.asset->url
       }`;
-  const fetchData = await client.fetch(query);
+  const fetchData = await client.fetch(query, { cache: "no-store" });
+
   return fetchData;
 }
 
 export async function get5KTo10K() {
-    const query = `*[_type == "price_range_5k_to_10k"]{
+  const query = `*[_type == "price_range_5k_to_10k"]{
             brand_name,
             price,
             "thumbnail_image" : thumbnail_image.asset->url,
            "videoSrc" : video.asset->url
         }`;
-    const fetchData = await client.fetch(query);
-    return fetchData;
-  }
+  const fetchData = await client.fetch(query, { cache: "no-store" });
 
-  export async function get10KTo15K() {
-    const query = `*[_type == "price_range_10k_to_15k"]{
+  return fetchData;
+}
+
+export async function get10KTo15K() {
+  const query = `*[_type == "price_range_10k_to_15k"]{
             brand_name,
             price,
             "thumbnail_image" : thumbnail_image.asset->url,
            "videoSrc" : video.asset->url
         }`;
-    const fetchData = await client.fetch(query);
-    return fetchData;
-  }
+  const fetchData = await client.fetch(query, { cache: "no-store" });
+
+  return fetchData;
+}
