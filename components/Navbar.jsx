@@ -23,10 +23,9 @@ function NavbarPage() {
   ];
 
   return (
-    <div className="w-full h-auto bg-info">
       <Navbar
         onMenuOpenChange={setIsMenuOpen}
-        className="bg-info border-b-2 border-info w-full"
+        className="w-full border-b-2 bg-info border-info"
         classNames={{
           wrapper: "!max-w-screen-2xl mx-auto px-[1.5rem] md:px-[2rem]",
           item: [
@@ -59,6 +58,7 @@ function NavbarPage() {
             "data-[active=true]:after:bg-success",
           ],
         }}
+        position="sticky"
       >
         <NavbarContent>
           <NavbarBrand className="">
@@ -136,7 +136,6 @@ function NavbarPage() {
           ))}
         </NavbarMenu>
       </Navbar>
-    </div>
   );
 }
 

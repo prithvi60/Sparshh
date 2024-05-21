@@ -8,9 +8,12 @@ const Progressbar = () => {
     damping: 30,
     restDelta: 0.001,
   });
+
   return (
     <motion.div
-      className="fixed bottom-0 left-0 right-0 h-[10px] !z-[100] origin-left bg-info"
+      className={`fixed top-[66px] left-0 right-0 h-[10px] !z-[100] origin-left 
+        bg-secondary
+      }`}
       style={{ scaleX }}
     />
   );

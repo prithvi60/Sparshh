@@ -7,8 +7,8 @@ import Progressbar from "./Progressbar";
 const Index = () => {
   return (
     <main>
-      <Progressbar/>
       <NavbarPage/>
+      <Progressbar/>
       <Hero />
       <ProductReels />
       <Footer />

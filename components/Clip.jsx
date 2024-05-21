@@ -1,6 +1,6 @@
 "use client";
 
-export const Clip = ({ videoSrc, videoRef, handleMouseOut, handleMouseOver }) => {
+export const Clip = ({ videoSrc, videoRef}) => {
   // const [mute, setMute] = useState(false);
   // const videoRef = useRef(null);
 
@@ -31,11 +31,11 @@ export const Clip = ({ videoSrc, videoRef, handleMouseOut, handleMouseOver }) =>
       >
         <source src={videoSrc} type="video/mp4" />
       </video>
-      <div
+      {/* <div
         className={`absolute top-0 left-0 w-full h-full cursor-pointer !z-50`}
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseOut}
-      ></div>
+      ></div> */}
     </div>
   );
 };

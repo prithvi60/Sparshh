@@ -1,4 +1,5 @@
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import NavbarPage from "@/components/Navbar";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <main>
       <NavbarPage/>
       <Contact />
+      <Footer />
     </main>
   );
 }
