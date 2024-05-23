@@ -8,7 +8,6 @@ import ModalForReels from "./ModalForReels";
 import SkeletonComponent from "./SkeletonComponent";
 import { Suspense } from "react";
 import SpinnerPage from "./SpinnerPage";
-import ProductCardIndex from "./ProductCardIndex";
 import ProductCard from "./ProductCard";
 
 const TabComponent = ({ reels }) => {
@@ -17,7 +16,6 @@ const TabComponent = ({ reels }) => {
     setTimeout(() => setIsLoading(false), 2000);
   }, []);
 
-  // console.log(isLoading);
   return (
     <>
       <Tabs
@@ -59,21 +57,17 @@ const TabComponent = ({ reels }) => {
               </div>
             }
           >
-            {/* {isLoading ? (
-              <SkeletonComponent />
+            {isLoading ? (
+              <div className="flex items-center justify-center w-full h-full">
+                <SpinnerPage />
+              </div>
             ) : (
               <ProductCard reels={reel.data} />
-            )} */}
-            {/* <SkeletonComponent /> */}
-            <ProductCard reels={reel.data} />
-            {/* <Suspense fallback={<SpinnerPage />}> */}
-              {/* <ProductCardIndex reel={reel.data} /> */}
-            {/* </Suspense> */}
+            )}
             <ModalForReels />
           </Tab>
         ))}
       </Tabs>
-      {/* <SkeletonComponent /> */}
     </>
   );
 };

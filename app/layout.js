@@ -2,6 +2,7 @@ import { Lato, Montserrat,Protest_Revolution } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import DefaultNavbvar from "@/components/DefaultNavbvar";
+import NavbarPage from "@/components/Navbar";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -33,7 +34,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${montserrat.variable} ${lato.variable} ${protest.variable} bg-default`}>
       <body>
-        {/* <NavbarPage /> */}
+        <NavbarPage />
         {/* <DefaultNavbvar/> */}
         <Providers>{children}</Providers>
       </body>

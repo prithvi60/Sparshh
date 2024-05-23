@@ -1,27 +1,11 @@
 "use client";
+// import { useEffect } from "react";
 
-export const Clip = ({ videoSrc, videoRef}) => {
-  // const [mute, setMute] = useState(false);
-  // const videoRef = useRef(null);
-
-  // console.log(mute);
-
-  // const handleMouseOver = () => {
-  //   // videoRef.current.play(undefined);
-  //   setMute(true);
-  //   // videoRef.current.defaultMuted = true;
-  //   videoRef.current.muted = true;
-  // };
-  // const handleMouseOut = () => {
-  //   // videoRef.current.pause();
-  //   setMute(false);
-  //   // videoRef.current.defaultMuted = false;
-  //   videoRef.current.muted = false;
-  // };
-
+export const Clip = ({ videoSrc, videoRef, setLoader }) => {
   return (
     <div className="relative shadow-md shadow-text-50">
       <video
+        preload="auto"
         muted
         loop
         autoPlay
@@ -29,7 +13,11 @@ export const Clip = ({ videoSrc, videoRef}) => {
         className={`w-full h-full aspect-clip object-contain`}
         ref={videoRef}
       >
-        <source src={videoSrc} type="video/mp4" />
+        <source
+          // onLoadedData={() => setLoader(true)}
+          src={videoSrc}
+          type="video/mp4"
+        />
       </video>
       {/* <div
         className={`absolute top-0 left-0 w-full h-full cursor-pointer !z-50`}

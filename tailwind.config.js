@@ -14,11 +14,11 @@ module.exports = {
       protest: ["var(--font-protest)"],
     },
     screens: {
-      sm: "640px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1440px",
-      "2xl": "1920px",
+      sm: "641px",
+      md: "769px",
+      lg: "1025px",
+      xl: "1441px",
+      "2xl": "1921px",
     },
     extend: {
       aspectRatio: {

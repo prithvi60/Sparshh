@@ -4,17 +4,19 @@ import { motion, useScroll, useSpring } from "framer-motion";
 const Progressbar = () => {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 50,
+    damping: 10,
     restDelta: 0.001,
   });
 
   return (
     <motion.div
-      className={`fixed top-[66px] left-0 right-0 h-[10px] !z-[100] origin-left 
-        bg-secondary
+      className={`fixed top-[66px] left-0 right-0 h-[10px] !z-30 origin-left bg-secondary rounded-xl animate-pulse shadow-lg
       }`}
-      style={{ scaleX }}
+      style={{
+        scaleX,
+        backgroundImage: "linear-gradient(to right, #FDFCD4,#E3B76A,#C78E3A ",
+      }}
     />
   );
 };

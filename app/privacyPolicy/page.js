@@ -6,7 +6,7 @@ import Privacy from "@/components/Privacy";
 export default function Home() {
   return (
     <main>
-      <NavbarPage/>
+      {/* <NavbarPage/> */}
       <Privacy/>
       <Footer />
     </main>
