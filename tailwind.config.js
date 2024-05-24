@@ -5,7 +5,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/components/(button|card|chip|divider|image|link|modal|navbar|skeleton|spinner|tabs|ripple).js"
+    "./node_modules/@nextui-org/theme/dist/components/(button|card|chip|divider|image|link|modal|navbar|skeleton|spinner|tabs|ripple).js",
   ],
   theme: {
     fontFamily: {
@@ -23,6 +23,22 @@ module.exports = {
     extend: {
       aspectRatio: {
         clip: "9/16",
+      },
+      keyframes: {
+        move: {
+          // "100%": {
+          //   backgroundPosition: "40px 0px",
+          // },
+          from: {
+            backgroundPositionX: 0,
+          },
+          to: {
+            backgroundPositionX: "113px",
+          },
+        },
+      },
+      animation: {
+        movement: "move 5s linear infinite",
       },
     },
   },

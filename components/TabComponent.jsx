@@ -5,16 +5,14 @@ import { Tabs, Tab } from "@nextui-org/tabs";
 import { Chip } from "@nextui-org/chip";
 import Image from "next/image";
 import ModalForReels from "./ModalForReels";
-import SkeletonComponent from "./SkeletonComponent";
-import { Suspense } from "react";
-import SpinnerPage from "./SpinnerPage";
 import ProductCard from "./ProductCard";
 
 const TabComponent = ({ reels }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
-  }, []);
+  // const [isLoading, setIsLoading] = useState(false);
+
+  // useEffect(() => {
+  //   setTimeout(() => setIsLoading(false), 2000);
+  // }, []);
 
   return (
     <>
@@ -57,13 +55,13 @@ const TabComponent = ({ reels }) => {
               </div>
             }
           >
-            {isLoading ? (
+            {/* {loader === false ? (
               <div className="flex items-center justify-center w-full h-full">
-                <SpinnerPage />
+                <SkeletonComponent />
               </div>
-            ) : (
+            ) : ( */}
               <ProductCard reels={reel.data} />
-            )}
+            {/* )} */}
             <ModalForReels />
           </Tab>
         ))}

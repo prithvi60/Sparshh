@@ -1,9 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-.text-outline {
-	text-shadow: -2px -2px 0 #E3B76A, 3px -3px 0 #E3B76A, -2px 2px 0 #E3B76A, 1px 1px 0 #E3B76A;
+:root {
+  --colour1: #f1c40f;
+  --colour2: #2c3e50;
+  --speed: 4s;
 }
 
+.text-outline {
+  text-shadow:
+    -2px -2px 0 #572D0C,
+    3px -3px 0 #572D0C,
+    -2px 2px 0 #572D0C,
+    1px 1px 0 #572D0C;
+}
+
+.bar {
+  /* background-color: var(--colour2); */
+  /* background-image: repeating-linear-gradient(
+    120deg,
+    transparent,
+    transparent 40px,
+    var(--colour1) 40px,
+    var(--colour1) 80px
+  ); */
+  /* background:
+  linear-gradient(45deg,#572D0C 0 10px,#E3B76A 0 20px) 0/0%,
+  linear-gradient(45deg,#ddd 0 10px,#eee 0 20px) 0/100%;
+  animation: slide var(--speed) linear infinite; */
+  /* will-change: background-position; */
+
+    background-color: #E3B76A;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewBox='0 0 25 25'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%237a4948' fill-opacity='0.93' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+}
+
+@keyframes slide {
+  /* from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 100%;
+  } */
+
+  /* 100%{
+	background-position-x: 40px 0px;
+  } */
+  100% {background-size:100%}
+}

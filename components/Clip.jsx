@@ -1,29 +1,30 @@
-"use client";
-// import { useEffect } from "react";
+// "use client";
+// import { useState } from "react";
+// import SkeletonComponent from "./SkeletonComponent";
 
-export const Clip = ({ videoSrc, videoRef, setLoader }) => {
+export const Clip = ({ videoSrc, videoRef }) => {
+  // const [loader, setLoader] = useState(true);
   return (
-    <div className="relative shadow-md shadow-text-50">
-      <video
-        preload="auto"
-        muted
-        loop
-        autoPlay
-        playsInline
-        className={`w-full h-full aspect-clip object-contain`}
-        ref={videoRef}
-      >
-        <source
-          // onLoadedData={() => setLoader(true)}
-          src={videoSrc}
-          type="video/mp4"
-        />
-      </video>
-      {/* <div
-        className={`absolute top-0 left-0 w-full h-full cursor-pointer !z-50`}
-        onMouseOver={handleMouseOver}
-        onMouseLeave={handleMouseOut}
-      ></div> */}
-    </div>
+    <>
+      {/* {loader && (
+        <div className="flex items-center justify-center w-full h-full">
+          <SkeletonComponent />
+        </div>
+      )} */}
+      <div className="relative shadow-md shadow-text-50">
+        <video
+          preload="auto"
+          muted
+          loop
+          autoPlay
+          playsInline
+          className={`w-full h-full aspect-clip object-contain`}
+          ref={videoRef}
+          // onPlay={() => setLoader(false)}
+        >
+          <source src={videoSrc} type="video/mp4" />
+        </video>
+      </div>
+    </>
   );
 };
