@@ -1,7 +1,7 @@
 import { Skeleton } from "@nextui-org/skeleton";
 import { Card } from "@nextui-org/card";
 
-const SkeletonComponent = () => {
+export const SkeletonComponents = () => {
   return (
     <div className="grid w-full h-full grid-cols-2 gap-4 py-5 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 place-items-center">
       {[...Array(10)].fill(null).map((_, index) => (
@@ -22,9 +22,22 @@ const SkeletonComponent = () => {
             <div className="rounded-lg h-96 !animate-pulse"></div>
           </Skeleton>
         </Card>
-     ))} 
-     </div>
+      ))}
+    </div>
   );
 };
 
-export default SkeletonComponent;
+export const SkeletonComponent = () => {
+  return (
+    <div className="w-full h-full">
+      <Card
+        className="overflow-hidden h-[25rem] md:h-[380px] lg:h-[460px] xl:h-[500px] w-80 md:w-full aspect-clip p-5 !bg-success/40 shadow-lg"
+        radius="lg"
+      >
+        <Skeleton className="rounded-lg !bg-secondary/50 p-5">
+          <div className="rounded-lg h-[25rem] md:h-[380px] lg:h-[460px] xl:h-[500px] !animate-pulse"></div>
+        </Skeleton>
+      </Card>
+    </div>
+  );
+};

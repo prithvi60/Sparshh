@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import { Chip } from "@nextui-org/chip";
 import Image from "next/image";
@@ -8,12 +8,6 @@ import ModalForReels from "./ModalForReels";
 import ProductCard from "./ProductCard";
 
 const TabComponent = ({ reels }) => {
-  // const [isLoading, setIsLoading] = useState(false);
-
-  // useEffect(() => {
-  //   setTimeout(() => setIsLoading(false), 2000);
-  // }, []);
-
   return (
     <>
       <Tabs
@@ -55,13 +49,7 @@ const TabComponent = ({ reels }) => {
               </div>
             }
           >
-            {/* {loader === false ? (
-              <div className="flex items-center justify-center w-full h-full">
-                <SkeletonComponent />
-              </div>
-            ) : ( */}
-              <ProductCard reels={reel.data} />
-            {/* )} */}
+            <ProductCard reels={reel.data} />
             <ModalForReels />
           </Tab>
         ))}

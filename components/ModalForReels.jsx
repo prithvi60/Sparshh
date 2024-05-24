@@ -1,16 +1,20 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Modal, ModalContent, ModalBody } from "@nextui-org/modal";
 import ButtonComponent from "./ButtonComponent";
 import Link from "next/link";
+import SpinnerPage from "./SpinnerPage";
+import { SkeletonComponent } from "./SkeletonComponent";
 
 const ModalForReels = ({ isOpen, onOpenChange, data }) => {
   const videoRef = useRef(null);
+  const [loader, setLoader] = useState(true);
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.volume = 0.04;
     }
   }, []);
+
   return (
     <Modal
       backdrop="blur"
@@ -50,22 +54,23 @@ const ModalForReels = ({ isOpen, onOpenChange, data }) => {
         closeButton: "hover:bg-red/5 active:bg-red/10",
       }}
     >
-      {/* w-4/5 md:!max-w-[500px] xl:!max-w-[800px] 2xl:!max-w-[1000px] */}
       <ModalContent>
         {() => (
           <>
-            {/* <ModalHeader className="flex flex-col items-center gap-1 tracking-wider shadow-md md:text-xl xl:text-3xl 2xl:text-4xl font-protest">
-              Sparshh
-            </ModalHeader>
-            <Divider className="p-0.5 bg-success" /> */}
             <ModalBody className="flex flex-col gap-1 md:gap-5 sm:flex-row">
+              {loader && (
+                // <div className="h-[25rem] md:h-[380px] lg:h-[460px] xl:h-[500px] w-96 md:w-full flex z-10 justify-center items-center">
+                <SkeletonComponent />
+                // </div>
+              )}
               <video
                 // muted
                 loop
                 autoPlay
                 playsInline
-                className={`h-[25rem] md:h-[380px] lg:h-[460px] xl:h-[500px] w-80 md:w-full aspect-clip object-contain rounded-lg mx-auto md:mx-0`}
+                className={`${loader === false ? "block" : "hidden"} h-[25rem] md:h-[380px] lg:h-[460px] xl:h-[500px] w-80 md:w-full aspect-clip object-contain rounded-lg mx-auto md:mx-0 z-0`}
                 ref={videoRef}
+                onLoadedData={() => setLoader(false)}
               >
                 <source src={data.videoSrc} type="video/mp4" />
               </video>
@@ -94,13 +99,13 @@ const ModalForReels = ({ isOpen, onOpenChange, data }) => {
                   eveniet quam vel doloremque fugit delectus?
                 </p>
                 <Link href={"/contact"} className="hidden sm:block">
-                    <button
-                      className={`block my-10 rounded-lg px-4 py-2 bg-secondary hover:bg-primary text-center text-base duration-700 delay-75 font-lato capitalize w-[140px] md:w-[350px] group`}
-                    >
-                      <ButtonComponent />
-                    </button>
-                  </Link>
-                </div>
+                  <button
+                    className={`block my-10 rounded-lg px-4 py-2 bg-secondary hover:bg-primary text-center text-base duration-700 delay-75 font-lato capitalize w-[140px] md:w-[350px] group`}
+                  >
+                    <ButtonComponent />
+                  </button>
+                </Link>
+              </div>
             </ModalBody>
           </>
         )}

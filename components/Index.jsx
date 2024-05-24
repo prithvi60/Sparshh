@@ -12,9 +12,9 @@ const Index = () => {
       {/* <NavbarPage/> */}
       <Progressbar/>
       <Hero />
-      <Suspense fallback={<SkeletonComponent/>}>
+      {/* <Suspense fallback={<SkeletonComponent/>}> */}
       <ProductReels />
-      </Suspense>
+      {/* </Suspense> */}
       <Footer />
     </main>
   );

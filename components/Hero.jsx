@@ -5,7 +5,7 @@ import MarqueeHero from "./MarqueeHero";
 const Hero = () => {
   const letters = ["S", "P", "A", "R", "S", "H", "H"];
   return (
-      <section className="w-full h-[35vh] md:h-[50vh] xl:h-[60vh] bg-black relative z-0 overflow-hidden">
+      <section className="w-full h-[35vh] md:h-[40vh] xl:h-[60vh] bg-black relative z-0 overflow-hidden">
        <MarqueeHero/>
         <div className="absolute bottom-5 left-5 block space-y-1 md:space-y-4 z-20">
           <h1 className="font-protest text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold text-default tracking-widest uppercase">
