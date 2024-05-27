@@ -1,6 +1,6 @@
-import { hookSecret } from "@/lib/sanity.api";
+
 import { revalidateTag } from "next/cache";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { parseBody } from "next-sanity/webhook";
 
 export async function POST(req) {

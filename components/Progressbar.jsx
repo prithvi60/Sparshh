@@ -30,8 +30,6 @@ const Progressbar = () => {
     };
   }, []);
 
-  console.log(completion);
-
   return (
     <div className="w-full h-auto fixed top-[66px] left-0 right-0 !z-30">
       {/* <motion.div

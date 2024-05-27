@@ -2,7 +2,7 @@
 import { usePathname } from "next/navigation";
 import NavbarPage from "./Navbar";
 
-const DefaultNavbvar = () => {
+const DefaultNavbar = () => {
   const path = usePathname();
   console.log(path);
   const isHome =
@@ -12,4 +12,4 @@ const DefaultNavbvar = () => {
   return !isHome ? <NavbarPage/> :  <div>{""}</div>;
 };
 
-export default DefaultNavbvar;
+export default DefaultNavbar;

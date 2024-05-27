@@ -1,7 +1,6 @@
 import { Lato, Montserrat,Protest_Revolution } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import DefaultNavbvar from "@/components/DefaultNavbvar";
 import NavbarPage from "@/components/Navbar";
 
 const montserrat = Montserrat({
