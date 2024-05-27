@@ -2,13 +2,14 @@ import Image from "next/image";
 import React from "react";
 import MarqueeHero from "./MarqueeHero";
 
+
 const Hero = () => {
   const letters = ["S", "P", "A", "R", "S", "H", "H"];
   return (
       <section className="w-full h-[35vh] md:h-[40vh] xl:h-[60vh] bg-black relative z-0 overflow-hidden">
        <MarqueeHero/>
-        <div className="absolute bottom-5 left-5 block space-y-1 md:space-y-4 z-20">
-          <h1 className="font-protest text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold text-default tracking-widest uppercase">
+        <div className="absolute z-20 block space-y-1 bottom-5 left-5 md:space-y-4">
+          <h1 className="text-6xl font-extrabold tracking-widest uppercase font-protest md:text-7xl lg:text-8xl xl:text-9xl text-default">
             sparshh
           </h1>
           <div className="flex items-center gap-3">
@@ -25,7 +26,7 @@ const Hero = () => {
             />
           </div>
         </div>
-        {/* <div className="block space-y-4 md:space-y-8 xl:space-y-12 z-20">
+        {/* <div className="z-20 block space-y-4 md:space-y-8 xl:space-y-12">
           <h1 className="font-protest text-[2.25rem] md:text-7xl lg:text-8xl xl:text-8xl px-3 font-extrabold text-default tracking-widest shadow-sm uppercase">
             sparshh
           </h1>
