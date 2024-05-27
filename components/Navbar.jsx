@@ -83,7 +83,7 @@ function NavbarPage() {
             src={"/sparshh_logo.jpg"}
             height={50}
             width={50}
-            className="object-cover object-center transition-all duration-700 ease-in-out rounded-full shadow-md cursor-pointer shadow-default hover:scale-110 !z-[1000]"
+            className="object-cover object-center transition-all duration-700 ease-in-out rounded-full shadow-md cursor-pointer hover:scale-110 !z-[1000]"
             // onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             onClick={() => router.push("/")}
           />

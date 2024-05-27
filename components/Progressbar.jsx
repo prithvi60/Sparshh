@@ -1,4 +1,5 @@
 "use client";
+import { Progress } from "@nextui-org/progress";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 const Progressbar = () => {
@@ -13,7 +14,7 @@ const Progressbar = () => {
   return (
     <div className="w-full h-auto">
     <motion.div
-      className={`fixed top-[66px] left-0 right-0 h-[20px] !z-30 origin-left rounded-md shadow-lg bar
+      className={`fixed top-[66px] left-0 right-0 h-[8px] !z-30 origin-left rounded-r-lg shadow-lg bg-secondary
       }`}
       style={{
         scaleX: scrollYProgress,
