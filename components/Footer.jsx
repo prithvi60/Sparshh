@@ -11,7 +11,7 @@ const Footer = () => {
         </h2>
         <Link href={"/contact"}>
           <button
-            className={`block rounded-lg px-4 py-2 bg-success hover:bg-info text-center text-base duration-700 delay-75 font-lato capitalize mx-auto sm:mx-0 w-full md:w-[200px] group`}
+            className={`block rounded-lg px-4 py-2 bg-primary hover:bg-secondary text-center text-base duration-700 delay-75 font-lato capitalize mx-auto sm:mx-0 w-full md:w-max group`}
           >
             <ButtonComponent />
           </button>

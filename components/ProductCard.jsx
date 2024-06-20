@@ -28,22 +28,22 @@ const ProductCard = ({ reels }) => {
   return (
     <>
       {loader && (
-        <div className="w-full h-full flex z-10">
+        <div className="z-10 flex w-full h-full">
           <SkeletonComponents />
         </div>
       )}
-      <div className="grid w-full h-full grid-cols-2 gap-4 py-5 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 place-items-center relative">
+      <div className="relative grid w-full h-full grid-cols-2 gap-4 py-5 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 place-items-center">
         {reels.map((reel, idx) => (
           <div onClick={() => handleClick(reel)} key={idx}>
             <Card
               style={{ backgroundColor: "#FDFCD4" }}
               className={`${loader === false ? "block" : "hidden"} overflow-hidden h-[17.5rem] md:h-[380px] lg:h-[460px] xl:h-[500px] w-40 md:w-full aspect-clip group cursor-pointer z-10 !shadow-none`}
             >
-              <CardHeader className="overflow-hidden group-hover:translate-y-0 absolute z-20 top-0 left-0 flex-col !items-start ease-linear group-hover:block md:opacity-0 transition-all md:-translate-y-20 md:duration-300 opacity-100 translate-y-0 md:group-hover:opacity-100 md:group-hover:translate-y-0 backdrop-blur-sm bg-info/35">
-                <p className="text-lg font-bold uppercase md:text-xl text-default">
+              <CardHeader className="overflow-hidden group-hover:translate-y-0 absolute z-20 top-0 left-0 flex-col !items-start ease-linear group-hover:block md:opacity-0 transition-all md:-translate-y-20 md:duration-300 opacity-100 translate-y-0 md:group-hover:opacity-100 md:group-hover:translate-y-0 backdrop-blur-sm bg-info/55">
+                <p className="text-lg font-bold uppercase md:text-xl text-success">
                   {reel.brand_name}
                 </p>
-                <h4 className="flex items-center gap-2 text-base font-medium text-default md:text-lg">
+                <h4 className="flex items-center gap-2 text-base font-medium text-success md:text-lg">
                   <span>
                     <Image
                       alt="money logo"

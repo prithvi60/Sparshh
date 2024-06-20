@@ -1,29 +1,37 @@
 import Image from "next/image";
 import React from "react";
-import MarqueeHero from "./MarqueeHero";
-
 
 const Hero = () => {
-  const letters = ["S", "P", "A", "R", "S", "H", "H"];
+
   return (
-      <section className="w-full h-[35vh] md:h-[40vh] xl:h-[60vh] bg-black relative z-0 overflow-hidden">
-       <MarqueeHero/>
-        <div className="absolute z-20 block space-y-1 bottom-5 left-5 md:space-y-4">
-          <h1 className="text-6xl font-extrabold tracking-widest uppercase font-protest md:text-7xl lg:text-8xl xl:text-9xl text-default">
+      <section className="relative z-0 w-full h-full overflow-hidden bg-black">
+        <div className="relative w-full h-[60dvh] md:h-dvh">
+        <Image
+              alt="cloth_svg"
+              src={"/heroBg.jpg"}
+              fill
+              quality={100}
+              priority
+              className="object-cover object-center"
+            />
+        </div>
+
+        <div className="absolute z-20 block space-y-1 bottom-5 left-7 md:bottom-28 md:left-14 md:space-y-4">
+          <h1 className="text-4xl font-extrabold tracking-widest uppercase md:text-5xl text-white/80 font-protest lg:text-6xl xl:text-7xl">
             sparshh
           </h1>
           <div className="flex items-center gap-3">
-            <h4 className="text-base font-medium md:text-xl xl:text-3xl font-lato text-success">
+            <h4 className="text-sm font-medium md:text-xl xl:text-2xl font-lato text-success">
               The Touch Of Elegance
             </h4>
-            <Image
+            {/* <Image
               alt="cloth_svg"
               src={"/cloth_svg.png"}
               // fill
               height={30}
               width={30}
               className="object-cover"
-            />
+            /> */}
           </div>
         </div>
         {/* <div className="z-20 block space-y-4 md:space-y-8 xl:space-y-12">

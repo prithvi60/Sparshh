@@ -4,7 +4,7 @@ import NavbarPage from "./Navbar";
 
 const DefaultNavbar = () => {
   const path = usePathname();
-  console.log(path);
+  // console.log(path);
   const isHome =
     path == "/studio/structure" ||
     "/studio/vision" ||

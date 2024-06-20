@@ -49,11 +49,11 @@ const Progressbar = () => {
         aria-label="Loading..."
         // color="success"
         value={completion}
-        size="md"
+        size="sm"
         radius="none"
         className="w-full"
         classNames={{
-          base: "",
+          base: "transition-all duration-700 ease-linear",
           indicator: "bg-success !rounded-r-lg",
         }}
       />

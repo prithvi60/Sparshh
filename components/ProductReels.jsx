@@ -46,10 +46,7 @@ const ProductReels = async () => {
 
   return (
     <section className="relative h-full px-3 py-5 mx-auto max-w-screen-2xl sm:px-10 md:py-8 xl:py-10">
-      <div className="flex flex-col w-full">
-        <h4 className="font-bold text-lg text-left sm:text-center md:absolute md:top-10 xl:top-12 md:right-[455px]">
-          Filters :
-        </h4>
+      <div className="block w-full">
         <TabComponent reels={reels} />
       </div>
     </section>

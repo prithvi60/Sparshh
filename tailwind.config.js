@@ -5,7 +5,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/components/(button|card|chip|divider|image|link|modal|navbar|progress|skeleton|spinner|tabs|ripple).js"
+    "./node_modules/@nextui-org/theme/dist/components/(button|card|chip|divider|image|link|modal|navbar|progress|select|skeleton|spinner|tabs|ripple|listbox|popover|scroll-shadow).js"
   ],
   theme: {
     fontFamily: {
@@ -49,7 +49,8 @@ module.exports = {
           colors: {
             primary: "#572D0C",
             secondary: "#C78E3A",
-            default: "#FDFCD4",
+            // default: "#FDFCD4",
+            default: "#CCBA78",
             success: "#E3B76A",
             info: "#281E18",
           },

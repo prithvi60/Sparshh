@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Modal, ModalContent, ModalBody } from "@nextui-org/modal";
 import ButtonComponent from "./ButtonComponent";
 import Link from "next/link";
-import SpinnerPage from "./SpinnerPage";
 import { SkeletonComponent } from "./SkeletonComponent";
 
 const ModalForReels = ({ isOpen, onOpenChange, data }) => {
@@ -86,7 +85,7 @@ const ModalForReels = ({ isOpen, onOpenChange, data }) => {
                   </div>
                   <Link href={"/contact"}>
                     <button
-                      className={`block sm:hidden my-10 rounded-lg px-4 py-2 bg-secondary hover:bg-primary text-center text-base duration-700 delay-75 font-lato capitalize w-[140px] md:w-[200px] group`}
+                      className={`block sm:hidden my-10 rounded-lg px-4 py-2 bg-secondary hover:bg-primary text-center text-base duration-700 delay-75 font-lato capitalize w-max group`}
                     >
                       <ButtonComponent />
                     </button>
@@ -100,7 +99,7 @@ const ModalForReels = ({ isOpen, onOpenChange, data }) => {
                 </p>
                 <Link href={"/contact"} className="hidden sm:block">
                   <button
-                    className={`block my-10 rounded-lg px-4 py-2 bg-secondary hover:bg-primary text-center text-base duration-700 delay-75 font-lato capitalize w-[140px] md:w-[350px] group`}
+                    className={`block my-10 rounded-lg px-4 py-2 bg-secondary hover:bg-primary text-center text-base duration-700 delay-75 font-lato capitalize w-max group`}
                   >
                     <ButtonComponent />
                   </button>
