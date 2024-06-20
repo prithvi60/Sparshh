@@ -11,14 +11,28 @@ import { Select, SelectItem } from "@nextui-org/select";
 const priceRange = ["low to high", "high to low"];
 
 const TabComponent = ({ reels }) => {
+  const [value, setValue] = useState("");
   const [selected, setSelected] = useState(0);
   const [sortBy, setSortBy] = useState("");
-  const [sortedProducts, setSortedProducts] = useState(reels[Number(selected)]);
+  let products = reels[Number(selected)].data;
+  const [sortedProducts, setSortedProducts] = useState(products);
 
+  const handleSelectionChange = (e) => {
+    setValue(e.target.value);
+    let tempValue = sortedProducts;
+    if (priceRange[Number(value)] === "low to high") {
+      tempValue.sort((val1, val2) => val1.range - val2.range);
+    } else {
+      tempValue.sort((val1, val2) => val2.range - val1.range);
+    }
+    setSortedProducts(tempValue);
+  };
+
+  // console.log(value);
   // useEffect(() => {}, [sortedProducts, selected]);
 
   // console.log(reels[Number(selected)]);
-  // console.log(sortedProducts);
+
   return (
     <div className="relative flex flex-col items-center w-full h-full gap-5">
       <div className="absolute top-14 left-0 md:top-0 md:left-[65%] xl:left-[80%]">
@@ -31,6 +45,7 @@ const TabComponent = ({ reels }) => {
           labelPlacement={"outside-left"}
           size={"md"}
           color="warning"
+          onChange={handleSelectionChange}
           className="items-center"
           classNames={{
             base: "w-full max-w-xs h-full capitalize",
@@ -90,7 +105,7 @@ const TabComponent = ({ reels }) => {
               </div>
             }
           >
-            <ProductCard reels={reel.data} />
+            <ProductCard reels={sortedProducts} />
             <ModalForReels />
           </Tab>
         ))}
