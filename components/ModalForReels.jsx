@@ -101,7 +101,7 @@ const ModalForReels = ({ isOpen, onOpenChange, data }) => {
                   <button
                     className={`block my-10 rounded-lg px-4 py-2 bg-secondary hover:bg-primary text-center text-base duration-700 delay-75 font-lato capitalize w-max group`}
                   >
-                    <ButtonComponent />
+                    <ButtonComponent text={"Contact us via WhatsApp"} />
                   </button>
                 </Link>
               </div>

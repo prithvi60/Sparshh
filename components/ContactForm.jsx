@@ -90,7 +90,7 @@ const ContactForm = () => {
       type="submit"
       className={`block rounded-lg px-4 py-2 bg-info hover:bg-success text-center text-base duration-700 delay-75 font-lato capitalize mx-auto sm:mx-0 w-full sm:w-[350px] group`}
     >
-      <ButtonComponent />
+      <ButtonComponent text={"Submit"} />
     </button>
     </form>
   );

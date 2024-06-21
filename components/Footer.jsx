@@ -13,7 +13,7 @@ const Footer = () => {
           <button
             className={`block rounded-lg px-4 py-2 bg-primary hover:bg-secondary text-center text-base duration-700 delay-75 font-lato capitalize mx-auto sm:mx-0 w-full md:w-max group`}
           >
-            <ButtonComponent />
+            <ButtonComponent text={"Contact us via WhatsApp"} />
           </button>
         </Link>
         {/* <Button
@@ -30,9 +30,9 @@ const Footer = () => {
           Sparshh
         </h4>
         <ul className="space-y-2 text-base font-normal capitalize font-lato text-info">
-          <li>
+          {/* <li>
             <Link href={"/"}>Home</Link>
-          </li>
+          </li> */}
           <li>
             <Link href={"/contact"}>Contact</Link>
           </li>

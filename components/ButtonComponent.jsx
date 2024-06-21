@@ -1,4 +1,4 @@
-const ButtonComponent = () => {
+const ButtonComponent = ({text}) => {
   return (
     // <button
     //   type="submit"
@@ -8,12 +8,12 @@ const ButtonComponent = () => {
       <h4
         className={`transition translate-y-0 group-hover:-translate-y-20 duration-700 text-white`}
       >
-        Contact us via WhatsApp
+        {text}
       </h4>
       <h4
         className={`translate-y-20 transition group-hover:-translate-y-[25px] duration-700 text-white`}
       >
-        Contact us via WhatsApp
+       {text}
       </h4>
     </div>
     // </button>

@@ -36,14 +36,14 @@ const ProductCard = ({ reels }) => {
         {reels.map((reel, idx) => (
           <div onClick={() => handleClick(reel)} key={idx}>
             <Card
-              style={{ backgroundColor: "#FDFCD4" }}
+              // style={{ backgroundColor: "#FDFCD4" }}
               className={`${loader === false ? "block" : "hidden"} overflow-hidden h-[17.5rem] md:h-[380px] lg:h-[460px] xl:h-[500px] w-40 md:w-full aspect-clip group cursor-pointer z-10 !shadow-none`}
             >
               <CardHeader className="overflow-hidden group-hover:translate-y-0 absolute z-20 top-0 left-0 flex-col !items-start ease-linear group-hover:block md:opacity-0 transition-all md:-translate-y-20 md:duration-300 opacity-100 translate-y-0 md:group-hover:opacity-100 md:group-hover:translate-y-0 backdrop-blur-sm bg-info/55">
-                <p className="text-lg font-bold uppercase md:text-xl text-success">
+                <h4 className="text-lg font-bold text-white uppercase md:text-xl">
                   {reel.brand_name}
-                </p>
-                <h4 className="flex items-center gap-2 text-base font-medium text-success md:text-lg">
+                </h4>
+                <h4 className="flex items-center gap-2 text-base font-medium text-white md:text-lg">
                   <span>
                     <Image
                       alt="money logo"

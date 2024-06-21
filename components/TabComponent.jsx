@@ -11,52 +11,56 @@ import { Select, SelectItem } from "@nextui-org/select";
 const priceRange = ["low to high", "high to low"];
 
 const TabComponent = ({ reels }) => {
-  const [value, setValue] = useState("");
+  const [optionValue, setOptionValue] = useState("");
   const [selected, setSelected] = useState(0);
   const [sortBy, setSortBy] = useState("");
-  let products = reels[Number(selected)].data;
-  const [sortedProducts, setSortedProducts] = useState(products);
+  // const [sortedProducts, setSortedProducts] = useState(null);
 
-  const handleSelectionChange = (e) => {
-    setValue(e.target.value);
-    let tempValue = sortedProducts;
-    if (priceRange[Number(value)] === "low to high") {
-      tempValue.sort((val1, val2) => val1.range - val2.range);
-    } else {
-      tempValue.sort((val1, val2) => val2.range - val1.range);
-    }
-    setSortedProducts(tempValue);
-  };
+  // useEffect(() => {
+  //   let products = reels[Number(selected)].data;
+  //   setSortedProducts(products);
+  // }, [selected, sortedProducts, setSortedProducts]);
 
-  // console.log(value);
-  // useEffect(() => {}, [sortedProducts, selected]);
-
-  // console.log(reels[Number(selected)]);
+  // const handleSelectionChange = (e) => {
+  //   setOptionValue(Number(e.target.value));
+  //   let tempValue = sortedProducts;
+  //   if (priceRange[optionValue] === "low to high") {
+  //     tempValue.sort((val1, val2) => Number(val1.range) - Number(val2.range));
+  //     // console.log("low to high");
+  //   } else if (priceRange[optionValue] === "high to low") {
+  //     tempValue.sort((val1, val2) => Number(val2.range) - Number(val1.range));
+  //     // console.log("high to low");
+  //   } else {
+  //     setSortedProducts(tempValue);
+  //     // console.log("logged");
+  //   }
+  //   // setSortedProducts(tempValue);
+  // };
+  // console.log(sortedProducts);
+  // console.log(priceRange[optionValue] === "low to high");
 
   return (
     <div className="relative flex flex-col items-center w-full h-full gap-5">
-      <div className="absolute top-14 left-0 md:top-0 md:left-[65%] xl:left-[80%]">
-        {/* <h4 className="text-lg font-bold text-left sm:text-center ">
-          Filters :
-        </h4> */}
+      <div className="absolute z-10 right-14 md:!right-0 top-14 md:top-0">
         <Select
           label="Filter:"
           placeholder="Select an Price Range"
           labelPlacement={"outside-left"}
           size={"md"}
-          color="warning"
-          onChange={handleSelectionChange}
+          // color="success"
+          // onChange={handleSelectionChange}
           className="items-center"
           classNames={{
             base: "w-full max-w-xs h-full capitalize",
+            value: "!text-white font-medium",
             label:
               "w-full h-full !text-primary text-lg tracking-wider font-medium",
             mainWrapper: "min-w-[230px]",
             popoverContent: "!p-0",
             trigger:
-              "bg-info text-warning data-[hover=true]:bg-info data-[hover=true]:bg-opacity-80",
-            innerWrapper: "capitalize text-warning",
-            listbox: "bg-info text-warning rounded-md capitalize",
+              "bg-info !text-white data-[hover=true]:bg-info data-[hover=true]:bg-opacity-80",
+            innerWrapper: "capitalize !text-white",
+            listbox: "bg-info !text-white rounded-md capitalize",
           }}
         >
           {priceRange.map((range, idx) => (
@@ -71,7 +75,7 @@ const TabComponent = ({ reels }) => {
         color="warning"
         variant="underlined"
         classNames={{
-          base: "w-full h-full justify-start xl:justify-center items-center pb-5",
+          base: "relative w-full h-full justify-start xl:justify-center items-center pb-5",
           tabList:
             "gap-4 md:gap-6 w-full relative rounded-none p-0 w-full sm:w-max overflow-x-scroll",
           cursor: "w-full bg-info",
@@ -79,6 +83,37 @@ const TabComponent = ({ reels }) => {
           tabContent: "group-data-[selected=true]:text-[#06b6d4]",
         }}
       >
+        {/* <Tab
+          title={
+            <div className="">
+              <Select
+                label="Filter:"
+                placeholder="Select an Price Range"
+                labelPlacement={"outside-left"}
+                size={"md"}
+                // color="success"
+                onChange={handleSelectionChange}
+                className="items-center"
+                classNames={{
+                  base: "w-full max-w-xs h-full capitalize",
+                  value: "!text-white font-medium",
+                  label:
+                    "w-full h-full !text-primary text-lg tracking-wider font-medium",
+                  mainWrapper: "min-w-[230px]",
+                  popoverContent: "!p-0",
+                  trigger:
+                    "bg-info !text-white data-[hover=true]:bg-info data-[hover=true]:bg-opacity-80",
+                  innerWrapper: "capitalize !text-white",
+                  listbox: "bg-info !text-white rounded-md capitalize",
+                }}
+              >
+                {priceRange.map((range, idx) => (
+                  <SelectItem key={idx}>{range}</SelectItem>
+                ))}
+              </Select>
+            </div>
+          }
+        ></Tab> */}
         {reels.map((reel, idx) => (
           <Tab
             key={idx}
@@ -105,7 +140,7 @@ const TabComponent = ({ reels }) => {
               </div>
             }
           >
-            <ProductCard reels={sortedProducts} />
+            <ProductCard reels={reel.data} />
             <ModalForReels />
           </Tab>
         ))}
