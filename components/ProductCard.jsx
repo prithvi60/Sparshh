@@ -12,18 +12,20 @@ const ProductCard = ({ reels }) => {
   const [data, setData] = useState(undefined);
   const [loader, setLoader] = useState(true);
 
-  const videoRef = useRef(null);
+  // const videoRef = useRef(null);
 
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.volume = 0.05;
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (videoRef.current) {
+  //     videoRef.current.volume = 0.05;
+  //   }
+  // }, []);
 
   const handleClick = (reel) => {
     setData(reel);
     onOpen();
   };
+
+  // console.log(reels);
 
   return (
     <>
@@ -58,10 +60,11 @@ const ProductCard = ({ reels }) => {
               </CardHeader>
               {/* <CardBody> */}
               <Clip
-                videoRef={videoRef}
-                videoSrc={reel.videoSrc}
+                // videoRef={videoRef}
+                videoSrc={reel}
                 setLoader={setLoader}
                 key={idx}
+                count={idx}
               />
               {/* </CardBody> */}
             </Card>

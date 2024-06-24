@@ -13,30 +13,31 @@ const priceRange = ["low to high", "high to low"];
 const TabComponent = ({ reels }) => {
   const [optionValue, setOptionValue] = useState("");
   const [selected, setSelected] = useState(0);
-  const [sortBy, setSortBy] = useState("");
-  // const [sortedProducts, setSortedProducts] = useState(null);
+  // const [sortBy, setSortBy] = useState("");
+  const [sortedProducts, setSortedProducts] = useState(null);
 
-  // useEffect(() => {
-  //   let products = reels[Number(selected)].data;
-  //   setSortedProducts(products);
-  // }, [selected, sortedProducts, setSortedProducts]);
+  useEffect(() => {
+    // let products = reels[Number(selected)].data;
+    setSortedProducts(reels[Number(selected)].data);
+  }, [selected, setSortedProducts]);
 
-  // const handleSelectionChange = (e) => {
-  //   setOptionValue(Number(e.target.value));
-  //   let tempValue = sortedProducts;
-  //   if (priceRange[optionValue] === "low to high") {
-  //     tempValue.sort((val1, val2) => Number(val1.range) - Number(val2.range));
-  //     // console.log("low to high");
-  //   } else if (priceRange[optionValue] === "high to low") {
-  //     tempValue.sort((val1, val2) => Number(val2.range) - Number(val1.range));
-  //     // console.log("high to low");
-  //   } else {
-  //     setSortedProducts(tempValue);
-  //     // console.log("logged");
-  //   }
-  //   // setSortedProducts(tempValue);
-  // };
+  const handleSelectionChange = (e) => {
+    setOptionValue(Number(e.target.value));
+    let tempValue = sortedProducts;
+    if (priceRange[optionValue] === "low to high") {
+      tempValue.sort((val1, val2) => Number(val1.range) - Number(val2.range));
+      // console.log("low to high");
+    } else if (priceRange[optionValue] === "high to low") {
+      tempValue.sort((val1, val2) => Number(val2.range) - Number(val1.range));
+      // console.log("high to low");
+    } else {
+      setSortedProducts(tempValue);
+      // console.log("logged");
+    }
+    // setSortedProducts(tempValue);
+  };
   // console.log(sortedProducts);
+  // console.log(Number(selected));
   // console.log(priceRange[optionValue] === "low to high");
 
   return (
@@ -140,7 +141,7 @@ const TabComponent = ({ reels }) => {
               </div>
             }
           >
-            <ProductCard reels={reel.data} />
+            <ProductCard reels={sortedProducts} />
             <ModalForReels />
           </Tab>
         ))}
