@@ -1,10 +1,3 @@
-import {
-  get5KTo10K,
-  getUpto5K,
-  get10KTo15K,
-  getUpto5KForPagination,
-  get5KTo10KForPagination,
-} from "@/constants/FetchData";
 import TabComponent from "./TabComponent";
 import { sanityFetch } from "@/sanity/lib/client";
 import {
@@ -27,16 +20,6 @@ const ProductReels = async () => {
     tags: ["price_range_10k_to_15k"],
   });
 
-  // const priceRange1 = await getUpto5K();
-  // // console.log(priceRange1);
-  // const priceRangeForPagination = await getUpto5KForPagination(11);
-  // // console.log(priceRangeForPagination);
-  // const priceRange2 = await get5KTo10K();
-  // const priceRangeForPagination2 = await get5KTo10KForPagination(10);
-  // const priceRange3 = await get10KTo15K();
-  // const priceRangeForPagination3 = await get5KTo10KForPagination(10);
-
-  // console.log(priceRange3);
 
   const reels = [
     { range: "upto 5k", data: priceRange1 },

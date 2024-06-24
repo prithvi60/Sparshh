@@ -1,11 +1,15 @@
-// "use client";
-// import { useState } from "react";
+"use client";
 // import SpinnerPage from "./SpinnerPage";
 
-export const Clip = ({ videoSrc, videoRef, setLoader,count }) => {
+// import { useState, useEffect } from "react";
 
-
-console.log("click",count,videoSrc);
+export const Clip = ({ videoSrc, videoRef, setLoader, count }) => {
+  // console.log("clip comp", count, videoSrc);
+  // const [video, setVideo] = useState(null);
+  // useEffect(() => {
+  //   console.log("clip effect", count, videoSrc);
+  //   setVideo(videoSrc);
+  // }, [videoSrc]);
   return (
     <>
       <div className="relative shadow-md shadow-text-50">
@@ -16,10 +20,10 @@ console.log("click",count,videoSrc);
           autoPlay
           playsInline
           className={`w-full h-full aspect-clip object-contain`}
-          // ref={videoRef}
+          ref={videoRef}
           onLoadedData={() => setLoader(false)}
         >
-          <source src={videoSrc.videoSrc} type="video/mp4" />
+          <source src={videoSrc?.videoSrc} type="video/mp4" />
         </video>
       </div>
       {/* {loader === true && (
