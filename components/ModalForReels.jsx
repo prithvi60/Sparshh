@@ -76,14 +76,14 @@ const ModalForReels = ({ isOpen, onOpenChange, data }) => {
               <div className="md:space-y-7">
                 <div className="flex items-center justify-between">
                   <div className="spacey-2.5">
-                    <h2 className="text-xl tracking-wider sm:text-2xl xl:text-3xl font-protest">
+                    <h2 className="text-xl tracking-wider sm:text-2xl xl:text-3xl font-protest text-white capitalize">
                       {data.brand_name}
                     </h2>
-                    <h4 className="text-lg tracking-wide sm:text-xl lg:text-2xl font-lato">
+                    <h4 className="text-lg tracking-wide sm:text-xl lg:text-2xl font-lato text-white">
                       {data.price}
                     </h4>
                   </div>
-                  <Link href={"/contact"}>
+                  <Link target="_blank" href="https://wa.me/9840884460?text=Hi%20team,%20I'd%20like%20your%20assistance">
                     <button
                       className={`block sm:hidden my-10 rounded-lg px-4 py-2 bg-secondary hover:bg-primary text-center text-base duration-700 delay-75 font-lato capitalize w-max group`}
                     >

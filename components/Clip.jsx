@@ -5,7 +5,7 @@
 export const Clip = ({ videoSrc, videoRef, setLoader,count }) => {
 
 
-console.log("click",count,videoSrc);
+// console.log("click",count,videoSrc);
   return (
     <>
       <div className="relative shadow-md shadow-text-50">

@@ -11,7 +11,7 @@ import { Select, SelectItem } from "@nextui-org/select";
 const priceRange = ["low to high", "high to low"];
 
 const TabComponent = ({ reels }) => {
-  const [optionValue, setOptionValue] = useState("");
+  const [optionValue, setOptionValue] = useState();
   const [selected, setSelected] = useState(0);
   // const [sortBy, setSortBy] = useState("");
   const [sortedProducts, setSortedProducts] = useState(null);
@@ -19,26 +19,40 @@ const TabComponent = ({ reels }) => {
   useEffect(() => {
     // let products = reels[Number(selected)].data;
     setSortedProducts(reels[Number(selected)].data);
-  }, [selected, setSortedProducts]);
+  }, [selected]);
 
   const handleSelectionChange = (e) => {
     setOptionValue(Number(e.target.value));
-    let tempValue = sortedProducts;
-    if (priceRange[optionValue] === "low to high") {
-      tempValue.sort((val1, val2) => Number(val1.range) - Number(val2.range));
-      // console.log("low to high");
-    } else if (priceRange[optionValue] === "high to low") {
-      tempValue.sort((val1, val2) => Number(val2.range) - Number(val1.range));
-      // console.log("high to low");
-    } else {
-      setSortedProducts(tempValue);
-      // console.log("logged");
-    }
-    // setSortedProducts(tempValue);
   };
-  // console.log(sortedProducts);
+
+  useEffect(() => {
+    if (optionValue >= 0) {
+      // let tempValue = sortedProducts;
+      if (optionValue === 0) {
+        console.log("lock1", optionValue);
+        const low = sortedProducts.sort(
+          (val1, val2) =>
+            Number(val2.price.replace("₹", "")) -
+            Number(val1.price.replace("₹", ""))
+        );
+        setSortedProducts(low);
+        console.log("low to high");
+      } else {
+        console.log("lock2", optionValue);
+        const high = sortedProducts.sort(
+          (val1, val2) =>
+            Number(val1.price.replace("₹", "")) -
+            Number(val2.price.replace("₹", ""))
+        );
+        console.log("high to low");
+        setSortedProducts(high);
+      }
+      console.log("render");
+    }
+  }, [optionValue]);
+  
   // console.log(Number(selected));
-  // console.log(priceRange[optionValue] === "low to high");
+  // console.log("lock", priceRange[optionValue]);
 
   return (
     <div className="relative flex flex-col items-center w-full h-full gap-5">
@@ -49,7 +63,7 @@ const TabComponent = ({ reels }) => {
           labelPlacement={"outside-left"}
           size={"md"}
           // color="success"
-          // onChange={handleSelectionChange}
+          onChange={handleSelectionChange}
           className="items-center"
           classNames={{
             base: "w-full max-w-xs h-full capitalize",
@@ -84,37 +98,6 @@ const TabComponent = ({ reels }) => {
           tabContent: "group-data-[selected=true]:text-[#06b6d4]",
         }}
       >
-        {/* <Tab
-          title={
-            <div className="">
-              <Select
-                label="Filter:"
-                placeholder="Select an Price Range"
-                labelPlacement={"outside-left"}
-                size={"md"}
-                // color="success"
-                onChange={handleSelectionChange}
-                className="items-center"
-                classNames={{
-                  base: "w-full max-w-xs h-full capitalize",
-                  value: "!text-white font-medium",
-                  label:
-                    "w-full h-full !text-primary text-lg tracking-wider font-medium",
-                  mainWrapper: "min-w-[230px]",
-                  popoverContent: "!p-0",
-                  trigger:
-                    "bg-info !text-white data-[hover=true]:bg-info data-[hover=true]:bg-opacity-80",
-                  innerWrapper: "capitalize !text-white",
-                  listbox: "bg-info !text-white rounded-md capitalize",
-                }}
-              >
-                {priceRange.map((range, idx) => (
-                  <SelectItem key={idx}>{range}</SelectItem>
-                ))}
-              </Select>
-            </div>
-          }
-        ></Tab> */}
         {reels.map((reel, idx) => (
           <Tab
             key={idx}

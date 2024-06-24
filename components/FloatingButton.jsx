@@ -26,16 +26,16 @@ export default function FloatingButton() {
         target="_blank"
         rel="noopener noreferrer"
         title="whatsapp"
-        className="hover:animate-bounce"
+        className="hover:animate-pulse"
         whileHover={{ scale: 1.1 }}
       >
         <motion.img
           loading="lazy"
           // src="https://ik.imagekit.io/webibee/Agency/whatsapp.gif"
-          src="/whatsapp_logo.gif"
+          src="/whatsapp_logo.png"
           alt="whatsapp logo"
           title="whatsapp logo"
-          className="w-14 h-14 md:h-16 md:w-16"
+          className="w-12 h-12 md:h-14 md:w-14"
           // whileHover={{ boxShadow: "0 0 0 2px #572D0C" }}
         />
       </motion.a>
