@@ -19,7 +19,7 @@ const Contact = () => {
           Visit our Store
         </h4>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15545.043036021556!2d80.2543585!3d13.0826535!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265c6d6dcaec7%3A0x1638e8948bfe1b76!2sSparshh!5e0!3m2!1sen!2sin!4v1715769091119!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.168687293059!2d77.0193824!3d11.025967399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8578574c70215%3A0x82ba9fdcdf0806d7!2sSparsh%20Ladies%20Designer!5e0!3m2!1sen!2sin!4v1719814165764!5m2!1sen!2sin"
           width={"100%"}
           height={"500"}
           style={{ border: 0 }}

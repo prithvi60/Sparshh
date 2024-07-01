@@ -22,7 +22,7 @@ function NavbarPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [percent, setPercent] = useState(null);
   const router = useRouter();
-  const path = usePathname();
+  // const path = usePathname();
 
   const handleClick = (value, ref) => {
     router.push(`${ref}`);
@@ -62,7 +62,7 @@ function NavbarPage() {
             percent >= 0 && percent <= 25
               ? "!bg-transparent shadow-none"
               : "bg-info shadow-md"
-          } fixed top-0 left-0 transition-all duration-500 ease-linear`,
+          } fixed h-auto top-0 left-0 transition-all duration-500 ease-linear`,
         ],
         wrapper: "!max-w-screen-2xl mx-auto px-[1.5rem] md:px-[2rem]",
         item: [
@@ -104,9 +104,9 @@ function NavbarPage() {
           </p> */}
           <Image
             alt="Logo"
-            src={"/sparshh_logo.jpg"}
-            height={50}
-            width={50}
+            src={"/sparsh-logo.jpg"}
+            height={55}
+            width={55}
             className="object-cover object-center transition-all duration-700 ease-in-out rounded-full shadow-md cursor-pointer hover:scale-110 !z-[1000]"
             // onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             onClick={() => router.push("/")}
@@ -124,9 +124,9 @@ function NavbarPage() {
         justify="end"
       >
         {/* {menuItems.map((item, id) => ( */}
-        <NavbarItem isActive={path === "/contact"}>
+        <NavbarItem>
           <div
-            className="capitalize !z-[1000] text-success cursor-pointer text-xl font-semibold"
+            className="capitalize !z-[1000] text-primary cursor-pointer text-xl font-semibold px-3.5 py-1 rounded-full bg-white transition-all duration-400 ease-in-out shadow-md hover:scale-110"
             onClick={() => handleClick("contact", "/contact")}
           >
             contact
@@ -156,7 +156,7 @@ function NavbarPage() {
         }}
       >
         {/* {menuItems.map((item, index) => ( */}
-        <NavbarMenuItem isActive={path === "/contact"}>
+        <NavbarMenuItem>
           <div
             className="w-full !h-auto pt-5 font-medium capitalize font-lato text-default cursor-pointer"
             onClick={() => handleClickMobile("contact", "/contact")}

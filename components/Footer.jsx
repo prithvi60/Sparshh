@@ -6,8 +6,9 @@ const Footer = () => {
     <footer className="flex flex-col items-start justify-between w-full h-auto gap-10 px-6 py-5 mx-auto md:gap-5 md:flex-row max-w-screen-2xl sm:px-10 md:py-8 xl:py-10">
       <div className="flex flex-col items-center justify-center w-full gap-5 sm:items-start sm:justify-start">
         <h2 className="w-full text-lg font-bold leading-8 tracking-wide text-center md:text-start font-montserrat md:text-xl xl:text-3xl">
-          🌿Embrace comfort and elegance with our curated collection of Indian
-          prints🌸 Shipping across India.🚚
+        We are Bridal Blouse and Hand Embroidery Specialist 🧵 ✨
+        <br/>
+        We will make your special days more special with our tailoring works ✂️ 🌟
         </h2>
         <Link target="_blank" href="https://wa.me/9840884460?text=Hi%20team,%20I'd%20like%20your%20assistance">
           <button
@@ -26,8 +27,8 @@ const Footer = () => {
         </Button> */}
       </div>
       <div className="w-full space-y-5 md:px-20">
-        <h4 className="text-lg font-medium font-protest md:text-2xl xl:text-4xl ">
-          Sparshh
+        <h4 className="text-lg font-medium capitalize font-protest md:text-2xl xl:text-4xl">
+          Sparsh designer
         </h4>
         <ul className="space-y-2 text-base font-normal capitalize font-lato text-info">
           {/* <li>
