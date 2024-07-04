@@ -25,31 +25,31 @@ const TabComponent = ({ reels }) => {
     setOptionValue(Number(e.target.value));
   };
 
-  useEffect(() => {
-    if (optionValue >= 0) {
-      // let tempValue = sortedProducts;
-      if (optionValue === 0) {
-        console.log("lock1", optionValue);
-        const low = sortedProducts.sort(
-          (val1, val2) =>
-            Number(val2.price.replace("₹", "")) -
-            Number(val1.price.replace("₹", ""))
-        );
-        setSortedProducts(low);
-        console.log("low to high");
-      } else {
-        console.log("lock2", optionValue);
-        const high = sortedProducts.sort(
-          (val1, val2) =>
-            Number(val1.price.replace("₹", "")) -
-            Number(val2.price.replace("₹", ""))
-        );
-        console.log("high to low");
-        setSortedProducts(high);
-      }
-      console.log("render");
-    }
-  }, [optionValue]);
+  // useEffect(() => {
+  //   if (optionValue >= 0) {
+  //     // let tempValue = sortedProducts;
+  //     if (optionValue === 0) {
+  //       console.log("lock1", optionValue);
+  //       const low = sortedProducts.sort(
+  //         (val1, val2) =>
+  //           Number(val2.price.replace("₹", "")) -
+  //           Number(val1.price.replace("₹", ""))
+  //       );
+  //       setSortedProducts(low);
+  //       console.log("low to high");
+  //     } else {
+  //       console.log("lock2", optionValue);
+  //       const high = sortedProducts.sort(
+  //         (val1, val2) =>
+  //           Number(val1.price.replace("₹", "")) -
+  //           Number(val2.price.replace("₹", ""))
+  //       );
+  //       console.log("high to low");
+  //       setSortedProducts(high);
+  //     }
+  //     console.log("render");
+  //   }
+  // }, [optionValue]);
   
   // console.log(Number(selected));
   // console.log("lock", priceRange[optionValue]);
@@ -63,7 +63,7 @@ const TabComponent = ({ reels }) => {
           labelPlacement={"outside-left"}
           size={"md"}
           // color="success"
-          onChange={handleSelectionChange}
+          // onChange={handleSelectionChange}
           className="items-center"
           classNames={{
             base: "w-full max-w-xs h-full capitalize",
