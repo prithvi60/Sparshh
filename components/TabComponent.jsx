@@ -1,20 +1,24 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import { Chip } from "@nextui-org/chip";
 import Image from "next/image";
 import ModalForReels from "./ModalForReels";
 import ProductCard from "./ProductCard";
 import { Select, SelectItem } from "@nextui-org/select";
+import { Spinner } from "@nextui-org/spinner";
+import { SkeletonComponents } from "./SkeletonComponent";
 
-const priceRange = ["low to high", "high to low"];
+const priceRange = ["upto 10k", "10k to 1Lakh", "1Lakh and above"];
 
 const TabComponent = ({ reels }) => {
   const [optionValue, setOptionValue] = useState();
   const [selected, setSelected] = useState(0);
   // const [sortBy, setSortBy] = useState("");
   const [sortedProducts, setSortedProducts] = useState(null);
+
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     // let products = reels[Number(selected)].data;
@@ -25,41 +29,12 @@ const TabComponent = ({ reels }) => {
     setOptionValue(Number(e.target.value));
   };
 
-  // useEffect(() => {
-  //   if (optionValue >= 0) {
-  //     // let tempValue = sortedProducts;
-  //     if (optionValue === 0) {
-  //       console.log("lock1", optionValue);
-  //       const low = sortedProducts.sort(
-  //         (val1, val2) =>
-  //           Number(val2.price.replace("₹", "")) -
-  //           Number(val1.price.replace("₹", ""))
-  //       );
-  //       setSortedProducts(low);
-  //       console.log("low to high");
-  //     } else {
-  //       console.log("lock2", optionValue);
-  //       const high = sortedProducts.sort(
-  //         (val1, val2) =>
-  //           Number(val1.price.replace("₹", "")) -
-  //           Number(val2.price.replace("₹", ""))
-  //       );
-  //       console.log("high to low");
-  //       setSortedProducts(high);
-  //     }
-  //     console.log("render");
-  //   }
-  // }, [optionValue]);
-  
-  // console.log(Number(selected));
-  // console.log("lock", priceRange[optionValue]);
-
   return (
     <div className="relative flex flex-col items-center w-full h-full gap-5">
       <div className="absolute z-10 right-14 md:!right-0 top-14 md:top-0">
         <Select
-          label="Filter:"
-          placeholder="Select an Price Range"
+          // label="Filter:"
+          placeholder="Select Category"
           labelPlacement={"outside-left"}
           size={"md"}
           // color="success"
@@ -83,6 +58,11 @@ const TabComponent = ({ reels }) => {
           ))}
         </Select>
       </div>
+      {loader && (
+        <div className="z-10 flex w-full h-full mt-24">
+          <SkeletonComponents />
+        </div>
+      )}
       <Tabs
         selectedKey={selected}
         onSelectionChange={setSelected}
@@ -124,8 +104,11 @@ const TabComponent = ({ reels }) => {
               </div>
             }
           >
-            <ProductCard reels={sortedProducts} />
-            <ModalForReels />
+            <ProductCard
+              reels={sortedProducts}
+              setLoader={setLoader}
+              loader={loader}
+            />
           </Tab>
         ))}
       </Tabs>

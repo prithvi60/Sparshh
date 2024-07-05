@@ -1,10 +1,3 @@
-import {
-  get5KTo10K,
-  getUpto5K,
-  get10KTo15K,
-  getUpto5KForPagination,
-  get5KTo10KForPagination,
-} from "@/constants/FetchData";
 import TabComponent from "./TabComponent";
 import { sanityFetch } from "@/sanity/lib/client";
 import {
@@ -12,6 +5,7 @@ import {
   priceRange5kTo10k,
   priceRangeUpto5k,
 } from "@/sanity/lib/query";
+
 
 const ProductReels = async () => {
   const priceRange1 = await sanityFetch({
@@ -47,7 +41,8 @@ const ProductReels = async () => {
   return (
     <section className="relative h-full px-3 py-5 mx-auto max-w-screen-2xl sm:px-10 md:py-8 xl:py-10">
       <div className="block w-full">
-        <TabComponent reels={reels} />
+          <TabComponent reels={reels} />
+    
       </div>
     </section>
   );

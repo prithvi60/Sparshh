@@ -1,9 +1,5 @@
-// "use client";
-// import { useState } from "react";
-// import SpinnerPage from "./SpinnerPage";
 import React, { forwardRef } from "react";
 export const Clip = forwardRef(({ videoSrc, setLoader }, ref) => {
-  console.log("t", ref.current);
   return (
     <>
       <div className="relative shadow-md shadow-text-50">
@@ -12,6 +8,7 @@ export const Clip = forwardRef(({ videoSrc, setLoader }, ref) => {
           muted
           loop
           // autoPlay
+          // controls
           playsInline
           className={`w-full h-full aspect-clip object-contain cursor-pointer`}
           ref={ref}
@@ -20,13 +17,9 @@ export const Clip = forwardRef(({ videoSrc, setLoader }, ref) => {
           onMouseLeave={() => ref.current.pause()}
         >
           <source src={videoSrc.videoSrc} type="video/mp4" />
+          Please try in latest browser...
         </video>
       </div>
-      {/* {loader === true && (
-        <div className="flex items-center justify-center w-full h-full">
-          <SpinnerPage />
-        </div>
-      )} */}
     </>
   );
 });

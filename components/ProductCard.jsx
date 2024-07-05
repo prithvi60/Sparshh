@@ -1,16 +1,16 @@
 "use client";
 import { Card, CardHeader } from "@nextui-org/card";
 import { Clip } from "./Clip";
-import { createRef, useRef, useState } from "react";
+import { createRef, Suspense, useRef, useState } from "react";
 import Image from "next/image";
 import { useDisclosure } from "@nextui-org/modal";
 import ModalForReels from "./ModalForReels";
 import { SkeletonComponents } from "./SkeletonComponent";
 
-const ProductCard = ({ reels }) => {
+const ProductCard = ({ reels, setLoader,loader }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [data, setData] = useState(undefined);
-  const [loader, setLoader] = useState(true);
+  // const [loader, setLoader] = useState(true);
 
   // Create an array of refs for each video
   const videoRefs = useRef(reels.map(() => createRef()));
@@ -24,11 +24,11 @@ const ProductCard = ({ reels }) => {
 
   return (
     <>
-      {loader && (
+      {/* {loader && (
         <div className="z-10 flex w-full h-full">
           <SkeletonComponents />
         </div>
-      )}
+      )} */}
       <div className="relative grid w-full h-full grid-cols-2 gap-4 py-5 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 place-items-center">
         {reels.map((reel, idx) => (
           <div onClick={() => handleClick(reel)} key={idx}>
@@ -54,6 +54,7 @@ const ProductCard = ({ reels }) => {
                 </h4> */}
               </CardHeader>
               {/* <CardBody> */}
+              {/* <Suspense fallback={<div>Loading</div>}> */}
               <Clip
                 ref={videoRefs.current[idx]}
                 videoSrc={reel}
@@ -61,6 +62,8 @@ const ProductCard = ({ reels }) => {
                 key={idx}
                 count={idx}
               />
+              {/* </Suspense> */}
+
               {/* </CardBody> */}
             </Card>
           </div>
