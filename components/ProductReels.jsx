@@ -6,7 +6,6 @@ import {
   priceRangeUpto5k,
 } from "@/sanity/lib/query";
 
-
 const ProductReels = async () => {
   const priceRange1 = await sanityFetch({
     query: priceRangeUpto5k,
@@ -33,16 +32,15 @@ const ProductReels = async () => {
   // console.log(priceRange3);
 
   const reels = [
-    { range: "upto 5k", data: priceRange1 },
-    { range: "5k - 10k", data: priceRange2 },
-    { range: "10k - 15k", data: priceRange3 },
+    { range: "upto 10k", data: priceRange1 },
+    { range: "10k - 1Lakh", data: priceRange2 },
+    { range: "1Lakh & Above", data: priceRange3 },
   ];
 
   return (
     <section className="relative h-full px-3 py-5 mx-auto max-w-screen-2xl sm:px-10 md:py-8 xl:py-10">
       <div className="block w-full">
-          <TabComponent reels={reels} />
-    
+        <TabComponent reels={reels} />
       </div>
     </section>
   );
