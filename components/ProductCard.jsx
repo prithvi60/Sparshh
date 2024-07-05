@@ -1,7 +1,7 @@
 "use client";
-import { Card, CardHeader} from "@nextui-org/card";
+import { Card, CardHeader } from "@nextui-org/card";
 import { Clip } from "./Clip";
-import { useEffect, useRef, useState } from "react";
+import { createRef, useRef, useState } from "react";
 import Image from "next/image";
 import { useDisclosure } from "@nextui-org/modal";
 import ModalForReels from "./ModalForReels";
@@ -12,13 +12,8 @@ const ProductCard = ({ reels }) => {
   const [data, setData] = useState(undefined);
   const [loader, setLoader] = useState(true);
 
-  // const videoRef = useRef(null);
-
-  // useEffect(() => {
-  //   if (videoRef.current) {
-  //     videoRef.current.volume = 0.05;
-  //   }
-  // }, []);
+  // Create an array of refs for each video
+  const videoRefs = useRef(reels.map(() => createRef()));
 
   const handleClick = (reel) => {
     setData(reel);
@@ -45,7 +40,7 @@ const ProductCard = ({ reels }) => {
                 <h4 className="text-lg font-bold text-white uppercase md:text-xl">
                   {reel.brand_name}
                 </h4>
-                <h4 className="flex items-center gap-2 text-base font-medium text-white md:text-lg">
+                {/* <h4 className="flex items-center gap-2 text-base font-medium text-white md:text-lg">
                   <span>
                     <Image
                       alt="money logo"
@@ -56,11 +51,11 @@ const ProductCard = ({ reels }) => {
                     />
                   </span>
                   {reel.price}
-                </h4>
+                </h4> */}
               </CardHeader>
               {/* <CardBody> */}
               <Clip
-                // videoRef={videoRef}
+                ref={videoRefs.current[idx]}
                 videoSrc={reel}
                 setLoader={setLoader}
                 key={idx}

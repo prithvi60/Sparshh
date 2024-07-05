@@ -1,11 +1,9 @@
 // "use client";
 // import { useState } from "react";
 // import SpinnerPage from "./SpinnerPage";
-
-export const Clip = ({ videoSrc, videoRef, setLoader,count }) => {
-
-
-// console.log("click",count,videoSrc);
+import React, { forwardRef } from "react";
+export const Clip = forwardRef(({ videoSrc, setLoader }, ref) => {
+  console.log("t", ref.current);
   return (
     <>
       <div className="relative shadow-md shadow-text-50">
@@ -13,11 +11,13 @@ export const Clip = ({ videoSrc, videoRef, setLoader,count }) => {
           preload="auto"
           muted
           loop
-          autoPlay
+          // autoPlay
           playsInline
-          className={`w-full h-full aspect-clip object-contain`}
-          // ref={videoRef}
+          className={`w-full h-full aspect-clip object-contain cursor-pointer`}
+          ref={ref}
           onLoadedData={() => setLoader(false)}
+          onMouseEnter={() => ref.current.play()}
+          onMouseLeave={() => ref.current.pause()}
         >
           <source src={videoSrc.videoSrc} type="video/mp4" />
         </video>
@@ -29,4 +29,4 @@ export const Clip = ({ videoSrc, videoRef, setLoader,count }) => {
       )} */}
     </>
   );
-};
+});
