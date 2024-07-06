@@ -33,6 +33,7 @@ const Hero = () => {
             src={"/heroBg.jpg"}
             fill
             loading="lazy"
+            quality={90}
             ref={loadingImage}
             className="object-cover object-center"
           />
