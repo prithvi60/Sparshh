@@ -2,7 +2,7 @@
 import React, { forwardRef, useEffect } from "react";
 export const Clip = forwardRef(({ videoSrc, setLoader }, ref) => {
   useEffect(() => {
-    const videoElement = ref.current;
+    const videoElement = ref?.current;
     const handlePlay = () => videoElement.play();
     const handlePause = () => videoElement.pause();
 
@@ -18,7 +18,7 @@ export const Clip = forwardRef(({ videoSrc, setLoader }, ref) => {
           videoElement.removeEventListener("mouseleave", handlePause);
         }
       },
-      { threshold: 0.6 } // Adjust the threshold as needed
+      { threshold: window.innerWidth > 600 ? 0.6 : 0.9 } // Adjust the threshold as needed
     );
 
     if (videoElement) {
@@ -41,7 +41,7 @@ export const Clip = forwardRef(({ videoSrc, setLoader }, ref) => {
           preload="auto"
           muted
           loop
-          poster="/sparsh-logo.jpg"
+          // poster="/sparsh-logo.jpg"
           autoPlay
           // controls
           playsInline
