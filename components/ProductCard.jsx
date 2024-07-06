@@ -1,11 +1,9 @@
 "use client";
 import { Card, CardHeader } from "@nextui-org/card";
 import { Clip } from "./Clip";
-import { createRef, Suspense, useRef, useState } from "react";
-import Image from "next/image";
+import { createRef, useRef, useState } from "react";
 import { useDisclosure } from "@nextui-org/modal";
 import ModalForReels from "./ModalForReels";
-import { SkeletonComponents } from "./SkeletonComponent";
 
 const ProductCard = ({ reels, setLoader,loader }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();

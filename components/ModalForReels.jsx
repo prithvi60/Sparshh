@@ -10,7 +10,7 @@ const ModalForReels = ({ isOpen, onOpenChange, data }) => {
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.volume = 0.04;
+      videoRef.current.volume = 0.15;
     }
   }, []);
 
@@ -67,43 +67,35 @@ const ModalForReels = ({ isOpen, onOpenChange, data }) => {
                 loop
                 autoPlay
                 playsInline
-                className={`${loader === false ? "block" : "hidden"} h-[25rem] md:h-[380px] lg:h-[460px] xl:h-[500px] w-80 md:w-full aspect-clip object-contain rounded-lg mx-auto md:mx-0 z-0`}
+                className={`${loader === false ? "block" : "hidden"} h-[25rem] md:h-[380px] lg:h-[460px] xl:h-[500px] w-80 md:w-60 aspect-clip object-contain rounded-lg mx-auto md:mx-0 z-0`}
                 ref={videoRef}
                 onLoadedData={() => setLoader(false)}
               >
                 <source src={data.videoSrc} type="video/mp4" />
               </video>
-              <div className="md:space-y-7">
-                <div className="flex items-center justify-between">
+              <div className="md:space-y-7 w-full">
+                <div className="flex items-center justify-center">
                   <div className="spacey-2.5">
-                    <h2 className="text-xl tracking-wider sm:text-2xl xl:text-3xl font-protest text-white capitalize">
+                    <h2 className="text-xl tracking-wider sm:text-2xl xl:text-3xl font-protest text-white capitalize mt-2">
                       {data.brand_name}
                     </h2>
-                    <h4 className="text-lg tracking-wide sm:text-xl lg:text-2xl font-lato text-white">
+                    {/* <h4 className="text-lg tracking-wide sm:text-xl lg:text-2xl font-lato text-white">
                       {data.price}
-                    </h4>
+                    </h4> */}
                   </div>
-                  <Link target="_blank" href="https://wa.me/9840884460?text=Hi%20team,%20I'd%20like%20your%20assistance">
+                </div>
+                <div className="flex flex-col  items-center h-full ">
+                  <p className="text-base tracking-normal line-clamp-3 sm:line-clamp-5 md:line-clamp-none md:text-lg font-lato my-2">
+                    Product description
+                  </p>
+                  <Link href={"/contact"} className="sm:block">
                     <button
-                      className={`block sm:hidden my-10 rounded-lg px-4 py-2 bg-secondary hover:bg-primary text-center text-base duration-700 delay-75 font-lato capitalize w-max group`}
+                      className={`block my-4 rounded-lg px-4 py-2 bg-secondary hover:bg-primary text-center text-base duration-700 delay-75 font-lato capitalize w-max group`}
                     >
-                      <ButtonComponent />
+                      <ButtonComponent text={"Contact us via WhatsApp"} />
                     </button>
                   </Link>
                 </div>
-                <p className="text-base tracking-normal line-clamp-3 sm:line-clamp-5 md:line-clamp-none md:text-lg font-lato">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Tempora ducimus odit explicabo porro aperiam molestias laborum
-                  sed nobis, sequi ipsam quidem. Obcaecati, commodi inventore
-                  eveniet quam vel doloremque fugit delectus?
-                </p>
-                <Link href={"/contact"} className="hidden sm:block">
-                  <button
-                    className={`block my-10 rounded-lg px-4 py-2 bg-secondary hover:bg-primary text-center text-base duration-700 delay-75 font-lato capitalize w-max group`}
-                  >
-                    <ButtonComponent text={"Contact us via WhatsApp"} />
-                  </button>
-                </Link>
               </div>
             </ModalBody>
           </>

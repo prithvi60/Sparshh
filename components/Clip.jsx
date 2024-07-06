@@ -7,7 +7,7 @@ export const Clip = forwardRef(({ videoSrc, setLoader }, ref) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        console.log("props", entry, videoElement);
+        // console.log("props", entry, videoElement);
         if (entry.isIntersecting) {
           videoElement.play();
         } else {

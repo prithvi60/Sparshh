@@ -1,19 +1,42 @@
+"use client"
 import Image from "next/image";
 import React from "react";
 // import { FaMapLocationDot } from "react-icons/fa6";
 
 const Hero = () => {
+  const [blur, setBlur] = React.useState(true);
+  const loadingImage = React.useRef();
+
+  React.useEffect(() => {
+    if (loadingImage.current.complete) {
+      setBlur(false);
+    }
+
+    loadingImage.current.addEventListener("load", () => {
+      setBlur(false);
+    });
+  }, []);
   return (
     <section className="relative z-0 w-full h-full overflow-hidden bg-black">
-      <div className="relative w-full h-[60vh] md:h-screen">
-        <Image
-          alt="cloth_svg"
-          src={"/heroBg.jpg"}
-          fill
-          quality={100}
-          priority
-          className="object-cover object-center"
-        />
+      <div className={`${blur ? "blur" : "unblur"}`}>
+        <div className="relative w-full h-[60vh] md:h-screen">
+          <Image
+            loading={"eager"}
+            alt="cloth_svg"
+            src={"/palceholder.jpg"}
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          <Image
+            alt="cloth_svg"
+            src={"/heroBg.jpg"}
+            fill
+            loading="lazy"
+            ref={loadingImage}
+            className="object-cover object-center"
+          />
+        </div>
       </div>
 
       <div className="absolute z-20 block p-1.5 rounded-md space-y-1  bottom-5 left-7 md:bottom-28 md:left-14 md:space-y-4 ">
