@@ -1,21 +1,17 @@
 "use client";
 import React, { forwardRef, useEffect } from "react";
+
 export const Clip = forwardRef(({ videoSrc, setLoader }, ref) => {
   useEffect(() => {
     const videoElement = ref?.current;
-    const handlePlay = () => videoElement.play();
-    const handlePause = () => videoElement.pause();
 
     const observer = new IntersectionObserver(
       ([entry]) => {
+        console.log("props", entry, videoElement);
         if (entry.isIntersecting) {
-          videoElement.load();
-          videoElement.addEventListener("mouseenter", handlePlay);
-          videoElement.addEventListener("mouseleave", handlePause);
+          videoElement.play();
         } else {
           videoElement.pause();
-          videoElement.removeEventListener("mouseenter", handlePlay);
-          videoElement.removeEventListener("mouseleave", handlePause);
         }
       },
       { threshold: window.innerWidth > 600 ? 0.6 : 0.9 } // Adjust the threshold as needed
@@ -28,8 +24,6 @@ export const Clip = forwardRef(({ videoSrc, setLoader }, ref) => {
     return () => {
       if (videoElement) {
         observer.unobserve(videoElement);
-        videoElement.removeEventListener("mouseenter", handlePlay);
-        videoElement.removeEventListener("mouseleave", handlePause);
       }
     };
   }, [ref]);
@@ -38,18 +32,16 @@ export const Clip = forwardRef(({ videoSrc, setLoader }, ref) => {
     <>
       <div className="relative shadow-md shadow-text-50">
         <video
+          aria-label="Product video"
           preload="auto"
           muted
           loop
           // poster="/sparsh-logo.jpg"
           autoPlay
-          // controls
           playsInline
           className={`w-full h-full aspect-clip object-contain cursor-pointer`}
           ref={ref}
           onLoadedData={() => setLoader(false)}
-          // onMouseEnter={() => ref.current.play()}
-          // onMouseLeave={() => ref.current.pause()}
         >
           <source src={videoSrc.videoSrc} type="video/mp4" />
           Please try in latest browser...
