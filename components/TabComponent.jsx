@@ -31,7 +31,7 @@ const TabComponent = ({ reels }) => {
 
   return (
     <div className="relative flex flex-col items-center w-full h-full gap-5">
-      <div className="absolute z-10 right-14 md:!right-0 top-14 md:top-0">
+      {/* <div className="absolute z-10 right-14 md:!right-0 top-14 md:top-0">
         <Select
           // label="Filter:"
           placeholder="Select Category"
@@ -57,7 +57,7 @@ const TabComponent = ({ reels }) => {
             <SelectItem key={idx}>{range}</SelectItem>
           ))}
         </Select>
-      </div>
+      </div> */}
       {loader && (
         <div className="z-10 flex w-full h-full mt-24">
           <SkeletonComponents />

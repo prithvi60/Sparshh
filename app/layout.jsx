@@ -2,8 +2,6 @@ import "./globals.css";
 import {
   Lato,
   Montserrat,
-  Protest_Revolution,
-  Playfair_Display,
   Arvo,
 } from "next/font/google";
 
@@ -13,6 +11,7 @@ const montserrat = Montserrat({
   display: "swap",
   variable: "--font-montserrat",
 });
+
 const lato = Lato({
   subsets: ["latin"],
   weight: "400",
@@ -27,11 +26,12 @@ const protest = Arvo({
   style: "normal",
   variable: "--font-protest",
 });
+
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${lato.variable} ${protest.variable} bg-white`}
+      className={`${montserrat.variable} ${lato.variable} ${protest.variable} bg-[#ffeed2]`}
     >
       <body>
         <main>{children}</main>

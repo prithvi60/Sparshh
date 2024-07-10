@@ -42,7 +42,7 @@ const Hero = () => {
 
       <div className="absolute z-20 block p-1.5 rounded-md space-y-1  bottom-5 left-7 md:bottom-28 md:left-14 md:space-y-4 ">
         {/* bg-black bg-opacity-10 */}
-        <h1 className="text-4xl font-extrabold tracking-widest uppercase md:text-5xl text-white/85 font-protest lg:text-6xl xl:text-7xl">
+        <h1 className="text-4xl font-extrabold tracking-wide uppercase md:text-5xl text-white/85 font-protest lg:text-6xl xl:text-7xl">
           Sparsh Designer
         </h1>
         <div className="flex items-center gap-3">
