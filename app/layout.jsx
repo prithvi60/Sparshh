@@ -4,6 +4,7 @@ import {
   Montserrat,
   Protest_Revolution,
   Playfair_Display,
+  Arvo,
 } from "next/font/google";
 
 const montserrat = Montserrat({
@@ -19,18 +20,18 @@ const lato = Lato({
   variable: "--font-lato",
 });
 
-const protest = Playfair_Display({
+const protest = Arvo({
   subsets: ["latin"],
-  weight: "600",
+  weight: "700",
   display: "swap",
-  style: "italic",
+  style: "normal",
   variable: "--font-protest",
 });
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${lato.variable} ${protest.variable} bg-default`}
+      className={`${montserrat.variable} ${lato.variable} ${protest.variable} bg-white`}
     >
       <body>
         <main>{children}</main>
