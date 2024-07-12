@@ -70,7 +70,7 @@ const TabComponent = ({ reels }) => {
         color="warning"
         variant="underlined"
         classNames={{
-          base: "relative w-full h-full justify-start xl:justify-center items-center pb-5",
+          base: "relative w-full h-full justify-start items-center pb-5 px-[1.25rem] md:px-[2.5rem] lg:px-[4rem]",
           tabList:
             "gap-4 md:gap-6 w-full relative rounded-none p-0 w-full sm:w-max overflow-x-scroll",
           cursor: "w-full bg-info",

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import React from "react";
 // import { FaMapLocationDot } from "react-icons/fa6";
@@ -40,9 +40,9 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="absolute z-20 block p-1.5 rounded-md space-y-1  bottom-5 left-7 md:bottom-28 md:left-14 md:space-y-4 ">
+      <div className="absolute z-20 block p-1.5 rounded-md space-y-1  bottom-5 left-7 sm:left-11 md:bottom-28 md:left-14 md:space-y-4 ">
         {/* bg-black bg-opacity-10 */}
-        <h1 className="text-4xl font-extrabold tracking-wide uppercase md:text-5xl text-white/85 font-protest lg:text-6xl xl:text-7xl">
+        <h1 className="text-5xl font-extrabold tracking-wide uppercase md:text-6xl text-white/85 font-protest lg:text-7xl xl:text-8xl">
           Sparsh Designer
         </h1>
         <div className="flex items-center gap-3">

@@ -64,7 +64,7 @@ function NavbarPage() {
               : "bg-info shadow-md"
           } fixed h-auto top-0 left-0 transition-all duration-500 ease-linear`,
         ],
-        wrapper: "!max-w-screen-2xl mx-auto px-[1.5rem] md:px-[2rem]",
+        wrapper: "!max-w-screen-2xl mx-auto px-[1.75rem] md:px-[2.5rem] lg:px-[4rem]",
         item: [
           "flex",
           "relative",
@@ -135,7 +135,7 @@ function NavbarPage() {
         {/* ))} */}
       </NavbarContent>
       <NavbarMenu
-        className="!bg-primary !bg-opacity-60 items-center !z-[1000]"
+        className="!bg-info !bg-opacity-80 items-center !z-[1000]"
         motionProps={{
           variants: {
             enter: {
@@ -156,9 +156,9 @@ function NavbarPage() {
         }}
       >
         {/* {menuItems.map((item, index) => ( */}
-        <NavbarMenuItem>
+        <NavbarMenuItem className="pt-20">
           <div
-            className="w-full !h-auto pt-5 font-medium capitalize font-lato text-default cursor-pointer"
+            className="w-full !h-auto font-semibold text-xl capitalize font-lato text-info cursor-pointer bg-[#ffeed2] rounded-full py-2 px-5" 
             onClick={() => handleClickMobile("contact", "/contact")}
           >
             contact

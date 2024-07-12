@@ -3,7 +3,7 @@ import ButtonComponent from "./ButtonComponent";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col items-start justify-between w-full h-auto gap-10 px-6 py-5 mx-auto text-white shadow-md md:gap-5 md:flex-row max-w-screen-2xl sm:px-10 md:py-8 xl:py-10 bg-info">
+    <footer className="flex flex-col items-start justify-between w-full h-auto gap-10 py-5 mx-auto text-white shadow-md md:gap-5 md:flex-row max-w-screen-2xl md:py-8 xl:py-10 bg-info px-[1.75rem] md:px-[2.5rem] lg:px-[4rem]">
       <div className="flex flex-col items-center justify-center w-full gap-5 md:items-start md:justify-start">
         <h2 className="w-full text-lg font-bold leading-8 tracking-wide text-center md:text-start font-montserrat md:text-xl xl:text-3xl">
           We are Bridal Blouse and Hand Embroidery Specialist 🧵 ✨
